@@ -7,5 +7,6 @@ namespace DoriVLN.Models.ViewModels
 {
     public class FolderViewModel
     {
+        public string name { get; set; }
     }
 }

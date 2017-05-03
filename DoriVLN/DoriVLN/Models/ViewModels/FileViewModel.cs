@@ -7,5 +7,9 @@ namespace DoriVLN.Models.ViewModels
 {
     public class FileViewModel
     {
+        public string name { get; set; }
+      //  public longtext content { get; set; }
+        public string fileType { get; set; }
+        public DateTime dateTime { get; set; }
     }
 }
