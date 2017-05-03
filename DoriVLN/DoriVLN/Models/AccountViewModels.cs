@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 // Just a comment
+// Geggjað komment frá Kristjáni
 namespace DoriVLN.Models
 {
     public class ExternalLoginConfirmationViewModel
