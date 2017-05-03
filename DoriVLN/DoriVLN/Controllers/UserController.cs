@@ -9,7 +9,19 @@ namespace DoriVLN.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult Index()
+        public ActionResult NewUser()
+        {
+            //TODO: implement
+            return View();
+        }
+
+        public ActionResult ResetPassword()
+        {
+            //TODO: implement
+            return View();
+        }
+
+        public ActionResult Login()
         {
             return View();
         }
