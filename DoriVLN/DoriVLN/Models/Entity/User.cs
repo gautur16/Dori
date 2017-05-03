@@ -7,10 +7,10 @@ namespace DoriVLN.Models.Entity
 {
     public class User
     {
-        int ID          { get; set; }
-        string name     { get; set; }
-        string email    { get; set; }
-        string username { get; set; }
-        string password { get; set; }
+        public int ID          { get; set; }
+        public string name     { get; set; }
+        public string email    { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
     }
 }

@@ -7,11 +7,11 @@ namespace DoriVLN.Models.Entity
 {
     public class File
     {
-        int ID          { get; set; }
-        string name     { get; set; }
-        string fileType { get; set; }
-        int ownerID     { get; set; }
+        public int ID          { get; set; }
+        public string name     { get; set; }
+        public string fileType { get; set; }
+        public int ownerID     { get; set; }
         //longText content 
-        string dateTime { get; set; }
+        public string dateTime { get; set; }
     }
 }

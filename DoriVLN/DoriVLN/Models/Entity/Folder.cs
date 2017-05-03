@@ -7,8 +7,8 @@ namespace DoriVLN.Models.Entity
 {
     public class Folder
     {
-        int ID { get; set; }
-        string name { get; set; }
-        int ownerID { get; set; }
+        public int ID { get; set; }
+        public string name { get; set; }
+        public int ownerID { get; set; }
     }
 }
