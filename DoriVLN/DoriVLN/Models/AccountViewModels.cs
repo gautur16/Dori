@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 // Just a comment
 // Geggjað komment frá Kristjáni
+// Ekki eins gott komment og frá stjána
 namespace DoriVLN.Models
 {
     public class ExternalLoginConfirmationViewModel
