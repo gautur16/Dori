@@ -8,3 +8,5 @@ DoriVLN/DoriVLN/obj/Debug/
 *.dll
 
 DoriVLN/\.vs/DoriVLN/v14/\.suo
+
+*.config
