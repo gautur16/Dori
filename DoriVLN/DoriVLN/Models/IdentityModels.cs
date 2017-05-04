@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using DoriVLN.Models.Entity;
 
 namespace DoriVLN.Models
 {
@@ -20,6 +21,10 @@ namespace DoriVLN.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<File> files { get; set; }
+        public DbSet<Folder> folders { get; set; }
+        public DbSet<User> users { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
