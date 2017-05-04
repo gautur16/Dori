@@ -14,7 +14,7 @@ namespace DoriVLN.Database
             //TODO: Implement
         }
         
-        public File getFileFromDB()
+        public File getFileFromDB(int fileID)
         {
             //TODO: Implement
             return null;

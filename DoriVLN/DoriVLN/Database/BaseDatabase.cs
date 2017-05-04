@@ -2,12 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Web; 
 
 namespace DoriVLN.Database
 {
     public class BaseDatabase
     {
-        // protected DataContext _db;
+        protected ApplicationDbContext _db;
     }
 }

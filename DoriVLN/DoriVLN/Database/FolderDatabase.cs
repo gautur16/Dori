@@ -8,7 +8,7 @@ namespace DoriVLN.Database
 {
     public class FolderDatabase: BaseDatabase
     {
-        public void addFolderToDB()
+        public void addFolderToDB(Folder folder)
         {
 
         }
