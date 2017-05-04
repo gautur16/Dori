@@ -1,4 +1,5 @@
 ﻿using DoriVLN.Models.Entity;
+﻿using DoriVLN.Models;
 using DoriVLN.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,37 @@ namespace DoriVLN.Services
 {
     public class FileService
     {
+
+        private ApplicationDbContext _db;
+
+        public FileService()
+        {
+            _db = new ApplicationDbContext();
+        }
+
+        public List<FileViewModel> getFilesInFolder(int folderID)
+        {
+            //TODO:
+            return null;
+        }
+
+        public FileViewModel getFileByID(int fileID)
+        {
+            //TODO:
+            var file = _db.files.SingleOrDefault(x => x.ID == fileID);
+            if(file == null)
+            {
+                //TODO: KASTA VILLU!
+            }
+
+            var viewModel = new FileViewModel
+            {
+                name = file.name
+            };
+
+            return viewModel;
+        }
+
         public void createFile(File file)
         {
             //TODO: Implement
@@ -35,6 +67,5 @@ namespace DoriVLN.Services
             //TODO: Implement
             return null;
         }
-
     }
 }
