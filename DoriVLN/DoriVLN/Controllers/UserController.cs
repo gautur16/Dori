@@ -12,7 +12,7 @@ namespace DoriVLN.Controllers
         // GET: User
         public ActionResult NewUser()
         {
-            //TODO: implement
+            
             return View();
         }
 
