@@ -201,6 +201,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Database\BaseDatabase.cs" />
+    <Compile Include="Database\FileDatabase.cs" />
+    <Compile Include="Database\FolderDatabase.cs" />
+    <Compile Include="Database\UserDatabase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
