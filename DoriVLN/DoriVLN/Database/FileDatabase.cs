@@ -9,9 +9,10 @@ namespace DoriVLN.Database
 {
     public class FileDatabase: BaseDatabase
     {
-        public void addFileToDB()
+        public void addFileToDB(File file)
         {
-            //TODO: Implement
+            _db.Files.Add(file);
+            _db.SaveChanges();
         }
         
         public File getFileFromDB(int fileID)

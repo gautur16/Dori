@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>Dóri V2</h1>
+    <p class="lead">
+        Dóri er geggjað forrit sem gerir þér kleift að vinna með alls konar skjöl með öðrum.
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Folders</h2>
+        <p>
+            @Html.ActionLink("Create Folder", "NewFolder", "Folder")
+            Hér viljum við geyma möppu strúktúrinn.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Files</h2>
+        <p>
+            Hér viljum við birta lista af skrám sem eru inni í valdri möppu.
+        </p>
+    </div>
+</div>
+

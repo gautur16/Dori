@@ -10,6 +10,11 @@ namespace DoriVLN.Controllers
     {
         // GET: Folder
        
+
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult RemoveFolder()
         {
             //TODO: implement

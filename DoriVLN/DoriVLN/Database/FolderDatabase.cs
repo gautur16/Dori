@@ -10,7 +10,8 @@ namespace DoriVLN.Database
     {
         public void addFolderToDB(Folder folder)
         {
-
+            _db.Folders.Add(folder);
+            _db.SaveChanges();
         }
 
         public void removeFolderFromDB()
