@@ -27,7 +27,7 @@ namespace DoriVLN.Models.ViewModels
 
     public class ShareFileViewModel
     {
-        public string share { get; set; }
+        public string shareLink { get; set; }
         public string sendRequest { get; set; } 
     }
 }
