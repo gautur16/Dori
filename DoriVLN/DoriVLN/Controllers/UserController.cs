@@ -1,9 +1,10 @@
-﻿using System;
+﻿using DoriVLN.Models.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
+// using System.Web.Security;
 
 namespace DoriVLN.Controllers
 {
@@ -27,17 +28,11 @@ namespace DoriVLN.Controllers
         {
             return View();
         }
-
-        /*
+        
         [HttpPost]
-        public ActionResult Login()
+        public ActionResult Login(User user)
         {
-            // TODO: implement functionality and add parameters.
-            if (ModelState.IsValid)
-            {
-
-            }
+            return View(user);
         }
-        */
     }
 }
