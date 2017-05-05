@@ -5,7 +5,6 @@ using System.Web;
 
 namespace DoriVLN.Models.ViewModels
 {
-    // Constructor.
     public class FileViewModel
     {
         public string name { get; set; }
@@ -28,6 +27,6 @@ namespace DoriVLN.Models.ViewModels
     public class ShareFileViewModel
     {
         public string shareLink { get; set; }
-        public string sendRequest { get; set; } 
+        public string sendEmailRequest { get; set; } 
     }
 }

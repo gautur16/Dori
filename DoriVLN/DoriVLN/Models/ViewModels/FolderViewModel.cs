@@ -5,7 +5,6 @@ using System.Web;
 
 namespace DoriVLN.Models.ViewModels
 {
-    // Constructor.
     public class FolderViewModel
     {
         public string name { get; set; }
