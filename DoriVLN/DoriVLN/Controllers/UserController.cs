@@ -1,4 +1,5 @@
-﻿using DoriVLN.Models.Entity;
+﻿using DoriVLN.Models.ViewModels;
+using DoriVLN.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,16 @@ namespace DoriVLN.Controllers
     public class UserController : Controller
     {
         // GET: User
+        [AllowAnonymous]
         public ActionResult NewUser()
         {
-            
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewUser(RegisterViewModel registerUser)
+        {
+            return View(registerUser);
         }
 
         public ActionResult ResetPassword()
@@ -29,10 +36,11 @@ namespace DoriVLN.Controllers
             return View();
         }
         
+        // Remeber to change to LoginViewModel.
         [HttpPost]
-        public ActionResult Login(User user)
+        public ActionResult Login(UserViewModel loginUser)
         {
-            return View(user);
+            return View(loginUser);
         }
     }
 }
