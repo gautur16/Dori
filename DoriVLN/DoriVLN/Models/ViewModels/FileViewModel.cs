@@ -5,11 +5,29 @@ using System.Web;
 
 namespace DoriVLN.Models.ViewModels
 {
+    // Constructor.
     public class FileViewModel
     {
         public string name { get; set; }
       //  public longtext content { get; set; }
         public string fileType { get; set; }
         public DateTime dateTime { get; set; }
+    }
+
+    public class CreateFileViewModel
+    {
+        public string name { get; set; }
+        public string fileType { get; set; }
+    }
+
+    public class RemoveFileViewModel
+    {
+        // TODO: Implement
+    }
+
+    public class ShareFileViewModel
+    {
+        public string share { get; set; }
+        public string sendRequest { get; set; } 
     }
 }
