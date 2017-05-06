@@ -1,17 +1,25 @@
-﻿@model DoriVLN.Models.ViewModels.UserViewModel
+﻿@model DoriVLN.Models.ViewModels.RegisterViewModel
 
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Register";
 }
 
-<h2>Login</h2>
+<h2>RegisterUser</h2>
+
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true, "Login failed. Check your login details.");
     <div>
         <fieldset>
-            <legend>Login</legend>
+            <legend>Enter Information</legend>
+            <div class="editor-field ">
+                @Html.LabelFor(u => u.email)
+            <div>
+            <div class="editor-field ">
+                @Html.TextBoxFor(u => u.email)
+                @Html.ValidationMessageFor(u => u.email)
+            </div>
             <div class="editor-label">
                 @Html.LabelFor(u => u.username)
             </div>
@@ -27,13 +35,11 @@
                 @Html.ValidationMessageFor(u => u.password)
             </div>
             <div class="editor-label">
-                @Html.CheckBoxFor(u => u.rememberMe)
-                @Html.LabelFor(u => u.rememberMe)
+                @Html.PasswordFor(u => u.confirmPassword)
+                @Html.LabelFor(u => u.confirmPassword)
             </div>
-            <span>
-                @Html.ActionLink("Register New User", "RegisterUser", "User")
-            </span>
-            <input type="submit" value="Log In" />
+            <input type="button" value="Register" />
+            <input type="button" value="Back" />
         </fieldset>
     </div>
 }

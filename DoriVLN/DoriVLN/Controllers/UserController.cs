@@ -12,14 +12,15 @@ namespace DoriVLN.Controllers
     public class UserController : Controller
     {
         // GET: User
+        [HttpGet]
         [AllowAnonymous]
-        public ActionResult NewUser()
+        public ActionResult RegisterUser()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult NewUser(RegisterViewModel registerUser)
+        public ActionResult RegisterUser(RegisterViewModel registerUser)
         {
             return View(registerUser);
         }

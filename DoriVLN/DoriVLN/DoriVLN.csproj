@@ -291,6 +291,7 @@
     <Content Include="Views\Folder\Index.cshtml" />
     <Content Include="Views\Folder\NewFolder.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\RegisterUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
