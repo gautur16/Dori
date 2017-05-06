@@ -31,8 +31,6 @@ namespace DoriVLN.Database
                 folder.name = newName;
                 _db.SaveChanges();
             }
-
-           
         }
 
         public Folder getFolderFromDB(int folderID)
@@ -41,11 +39,27 @@ namespace DoriVLN.Database
             return retFolder;
         }
 
-        public int getFolderID(File file)
+        public int getFolderID(Folder folder)
         {
-            var retID = _db.Folders.SingleOrDefault();
+            var retVal = _db.Folders.SingleOrDefault(f => f.name == folder.name && f.ownerID == folder.ownerID);
+            int retID;
+            if(retVal == null)
+            {
+                //TODO: throw exception...
+            }
+            retID = retVal.ID;
+            return retID;
+        }
 
-            return 0;
+        public bool folderExists(Folder folder)
+        {
+            var retFolder = _db.Folders.SingleOrDefault(f => f.name == folder.name && f.ownerID == folder.ownerID);
+
+            if(retFolder != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

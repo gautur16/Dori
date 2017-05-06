@@ -23,19 +23,21 @@ namespace DoriVLN.Services
             _foDB.addFolderToDB(folder);
         }
 
-        public void deleteFolder(FolderViewModel folder)
+        public void deleteFolder(Folder folder)
         {
-            //TODO: Implement
+            var folderID = _foDB.getFolderID(folder);
+                
         }
 
-        public void setFolderName(string name, FolderViewModel folder)
+        public void setFolderName(string name, Folder folder)
         {
-            //TODO: Implement
+            int folderID = _foDB.getFolderID(folder);
+            _foDB.setFolderNameInDB(folderID, name);
         }
 
         public bool folderExists(string folderName)
         {
-            //TODO: Implement
+            _foDB.fol
             return false;
         }
 

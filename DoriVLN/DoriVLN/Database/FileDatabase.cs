@@ -44,17 +44,28 @@ namespace DoriVLN.Database
 
         }
 
-        public bool fileExists(string name, string type)
+        public bool fileExists(File file)
         {
-            var retVal = _db.Files.SingleOrDefault(f => f.name == name && f.fileType == type);
-            if(retVal != null)
+            var retFile = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType && file.ownerID == f.ownerID);
+            if(retFile != null)
             {
                 return true;
             }
-            else
+
+            return false;
+        }
+
+        public int getFileID(File file)
+        {
+            
+            var retFile = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType && file.ownerID == f.ownerID);
+            if (retFile == null)
             {
-                return false;
+                //TODO: throw NotFoundException...
             }
+            
+                return retFile.ID;
+            
         }
     }
 }
