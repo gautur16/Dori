@@ -13,7 +13,7 @@ namespace DoriVLN.Controllers
         // GET: Folder
        
 
-        public ActionResult Index()
+        public ActionResult Overview()
         {
             return View();
         }
@@ -23,15 +23,20 @@ namespace DoriVLN.Controllers
             return View();
         }
 
-        public ActionResult Overview()
+        /*public ActionResult Overview()
+        {
+            //TODO: implement
+            return View();
+        }*/
+
+        public ActionResult NewFolder()
         {
             //TODO: implement
             return View();
         }
 
-        public ActionResult NewFolder()
+        public ActionResult DisplayFolders()
         {
-            //TODO: implement
             return View();
         }
     }
