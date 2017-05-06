@@ -23,12 +23,12 @@ namespace DoriVLN.Services
         public bool usernameExists(User user)
         {
             
-            return false;
+            return _uDB.usernameExistsInDB(user);
         }
 
         public bool emailExists(User user)
         {
-            return false;
+            return _uDB.emailExistsInDB(user);
         }
 
         public void resetPassword(User user)

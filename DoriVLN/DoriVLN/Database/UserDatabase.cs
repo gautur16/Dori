@@ -14,14 +14,36 @@ namespace DoriVLN.Database
             _db.SaveChanges();
         }
 
-        public bool emailExistsInDB()
+        public bool emailExistsInDB(User user)
         {
+            var retUser = _db.Users.SingleOrDefault(u => u.email == user.email);
+            if(retUser != null)
+            {
+                return true;
+            }
             return false;
         }
 
-        public bool usernameExistsInDB()
+        public bool usernameExistsInDB(User user)
         {
+            var retUser = _db.Users.SingleOrDefault(u => u.username == user.username);
+
+            if(retUser != null)
+            {
+                return true;
+            } 
             return false;
+        }
+
+        public void resetPasswordInDB(User user, string newPassword)
+        {
+            var retUser = _db.Users.SingleOrDefault(u => u.ID == user.ID);
+            if(retUser != null)
+            {
+                retUser.password = newPassword;
+                _db.SaveChanges();
+            }
+
         }
     }
 }
