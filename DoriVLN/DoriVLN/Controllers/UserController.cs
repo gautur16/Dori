@@ -25,10 +25,17 @@ namespace DoriVLN.Controllers
             return View(registerUser);
         }
 
+        [HttpGet]
         public ActionResult ResetPassword()
         {
             //TODO: implement
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(ForgotPasswordViewModel forgotPassword)
+        {
+            return View(forgotPassword);
         }
 
         [HttpGet]

@@ -4,16 +4,16 @@
     ViewBag.Title = "Register";
 }
 
-<h2>RegisterUser</h2>
+<h2>Register New User</h2>
 
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true, "Login failed. Check your login details.");
+    @Html.ValidationSummary(true, "Something went wrong. Check your details.");
     <div>
         <fieldset>
             <legend>Enter Information</legend>
-            <div class="editor-field ">
+            <div class="editor-label ">
                 @Html.LabelFor(u => u.email)
             <div>
             <div class="editor-field ">
