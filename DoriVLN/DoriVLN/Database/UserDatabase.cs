@@ -13,5 +13,15 @@ namespace DoriVLN.Database
             _db.Users.Add(user);
             _db.SaveChanges();
         }
+
+        public bool emailExistsInDB()
+        {
+            return false;
+        }
+
+        public bool usernameExistsInDB()
+        {
+            return false;
+        }
     }
 }

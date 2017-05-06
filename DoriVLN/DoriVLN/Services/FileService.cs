@@ -54,9 +54,9 @@ namespace DoriVLN.Services
             _fiDB.editFileInDB(fileID, editedFile);
         }
 
-        public bool fileExists(string fileName, string fileType)
+        public bool fileExists(File file)
         {
-            return _fiDB.fileExists(fileName, fileType);
+            return _fiDB.fileExists(file);
         }
 
         public File getFile(int fileID)

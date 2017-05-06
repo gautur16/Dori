@@ -35,10 +35,10 @@ namespace DoriVLN.Services
             _foDB.setFolderNameInDB(folderID, name);
         }
 
-        public bool folderExists(string folderName)
+        public bool folderExists(Folder folder)
         {
-            _foDB.fol
-            return false;
+           return _foDB.folderExists(folder);
+           
         }
 
         public FolderViewModel getFolder()

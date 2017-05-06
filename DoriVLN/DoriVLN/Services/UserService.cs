@@ -1,4 +1,5 @@
-﻿using DoriVLN.Models.Entity;
+﻿using DoriVLN.Database;
+using DoriVLN.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,25 @@ namespace DoriVLN.Services
 {
     public class UserService
     {
+        private UserDatabase _uDB;
+
+        public UserService()
+        {
+            _uDB = new UserDatabase();
+        }
         public void addUser(User user)
         {
-            //TODO: Implement
+            _uDB.addUserToDB(user);
         }
 
-        public bool userExists(User user)
+        public bool usernameExists(User user)
         {
-            //TODO: Implement
+            
+            return false;
+        }
+
+        public bool emailExists(User user)
+        {
             return false;
         }
 
