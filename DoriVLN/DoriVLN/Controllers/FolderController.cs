@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DoriVLN.Database;
+using DoriVLN.Models.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +15,12 @@ namespace DoriVLN.Controllers
 
         public ActionResult Index()
         {
+            FileDatabase db = new FileDatabase();
+
+            db.removeFileFromDB(1);
+
+            
+
             return View();
         }
         public ActionResult RemoveFolder()

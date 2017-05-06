@@ -8,6 +8,10 @@ namespace DoriVLN.Database
 {
     public class BaseDatabase
     {
+        public BaseDatabase()
+        {
+            _db = new ApplicationDbContext();
+        }
         protected ApplicationDbContext _db;
     }
 }
