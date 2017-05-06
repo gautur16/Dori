@@ -15,12 +15,6 @@ namespace DoriVLN.Controllers
 
         public ActionResult Index()
         {
-            FileDatabase db = new FileDatabase();
-
-            db.removeFileFromDB(1);
-
-            
-
             return View();
         }
         public ActionResult RemoveFolder()

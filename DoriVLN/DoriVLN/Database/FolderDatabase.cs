@@ -14,19 +14,38 @@ namespace DoriVLN.Database
             _db.SaveChanges();
         }
 
-        public void removeFolderFromDB()
+        public void removeFolderFromDB(int folderID)
         {
+            var folder = _db.Folders.SingleOrDefault(f => f.ID == folderID);
+            _db.Folders.Attach(folder);
+            _db.Folders.Remove(folder);
+            _db.SaveChanges();
 
         }
 
-        public void setFolderNameInDB()
+        public void setFolderNameInDB(int folderID, string newName)
         {
+            var folder = _db.Folders.FirstOrDefault(f => f.ID == folderID);
+            if(folder != null)
+            {
+                folder.name = newName;
+                _db.SaveChanges();
+            }
 
+           
         }
 
-        public Folder getFolderFromDB()
+        public Folder getFolderFromDB(int folderID)
         {
-            return null;
+            var retFolder = _db.Folders.SingleOrDefault(f => f.ID == folderID);
+            return retFolder;
+        }
+
+        public int getFolderID(File file)
+        {
+            var retID = _db.Folders.SingleOrDefault();
+
+            return 0;
         }
     }
 }

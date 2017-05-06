@@ -1,4 +1,5 @@
-﻿using DoriVLN.Models.Entity;
+﻿using DoriVLN.Database;
+using DoriVLN.Models.Entity;
 using DoriVLN.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,17 @@ namespace DoriVLN.Services
 {
     public class FolderService
     {
-        public void createFolder(FolderViewModel folder)
+        private FolderDatabase _foDB;
+
+        public FolderService()
         {
-            //TODO: Implement
+            _foDB = new FolderDatabase();
+        }
+        
+
+        public void createFolder(Folder folder)
+        {
+            _foDB.addFolderToDB(folder);
         }
 
         public void deleteFolder(FolderViewModel folder)

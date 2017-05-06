@@ -17,32 +17,13 @@ namespace DoriVLN.Database
         
         public File getFileFromDB(int fileID)
         {
-            File retFile = new File();
-            foreach (File f in _db.Files)
-            {
-                if (f.ID == fileID)
-                {
-                    retFile = f;
-                }
-                else
-                {
-                    //TODO: throw exception
-                }
-               
-            }
+            var retFile = _db.Files.SingleOrDefault(f => f.ID == fileID);
             return retFile;
         }
 
         public void removeFileFromDB(int fileID)
         {
-            File file = new File();
-            foreach(File f in _db.Files)
-            {
-                if (f.ID == fileID)
-                {
-                    file = f;
-                }
-            }
+            var file = _db.Files.SingleOrDefault(f => f.ID == fileID);
             if(file == null)
             {
                 //TODO: Throw Null Exception
@@ -51,21 +32,29 @@ namespace DoriVLN.Database
             _db.Files.Attach(file);
             _db.Files.Remove(file);
             _db.SaveChanges();
-
-
-            //TODO: Throw some kind of "File is non-existent" exception
         }
 
-        public void  editFileInDB(int fileID, File file)
+        public void  editFileInDB(int fileID, File newfile)
         {
+            var file = _db.Files.SingleOrDefault(f => f.ID == fileID);
 
-            foreach(File f in _db.Files)
+            file.name = newfile.name;
+            file.fileType = newfile.fileType;
+            _db.SaveChanges();
+
+        }
+
+        public bool fileExists(string name, string type)
+        {
+            var retVal = _db.Files.SingleOrDefault(f => f.name == name && f.fileType == type);
+            if(retVal != null)
             {
-                if(f.ID == fileID)
-                {
-                }
+                return true;
             }
-
+            else
+            {
+                return false;
+            }
         }
     }
 }

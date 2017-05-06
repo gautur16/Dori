@@ -11,13 +11,10 @@ namespace DoriVLN.Services
 {
     public class FileService
     {
-
-        private ApplicationDbContext _db;
         private FileDatabase _fiDB;
 
         public FileService()
         {
-            _db = new ApplicationDbContext();
             _fiDB = new FileDatabase();
         }
 
@@ -29,57 +26,43 @@ namespace DoriVLN.Services
 
         public FileViewModel getFileByID(int fileID)
         {
-            //TODO:
-            //var file = _db.Files.SingleOrDefault(x => x.ID == fileID);
-            /* if(file == null)
-             {
-                 //TODO: KASTA VILLU!
-             }
-
-             var viewModel = new FileViewModel
-             {
-                 name = file.name
-             }; */
-
             var file = _fiDB.getFileFromDB(fileID);
-            if (file == null)
-            {
-                //TODO: KASTA VILLU!
-            }
 
-            var viewModel = new FileViewModel
-            {
-                name = file.name
-            };
+            FileViewModel viewModel = new FileViewModel();
+            viewModel.name = file.name;
+            viewModel.fileType = file.fileType;
+            //TODO: How does one display the file's data from the database???
 
             return viewModel;
         }
 
         public void createFile(File file)
         {
-            //TODO: Implement
+            _fiDB.addFileToDB(file);
         }
 
-        public void deleteFile(FileViewModel file)
+        public void deleteFile(int fileID)
         {
-            //TODO: Implement
+            _fiDB.removeFileFromDB(fileID);
         }
 
-        public void editFile(FileViewModel file)
+        public void editFile(int fileID, FileViewModel file)
         {
-            //TODO: Implement
+            File editedFile = new File();
+            editedFile.name = file.name;
+            editedFile.fileType = file.fileType;
+            _fiDB.editFileInDB(fileID, editedFile);
         }
 
-        public bool fileExists(FileViewModel file)
+        public bool fileExists(string fileName, string fileType)
         {
-            //TODO: Implement
-            return false;
+            return _fiDB.fileExists(fileName, fileType);
         }
 
-        public File getFile()
+        public File getFile(int fileID)
         {
-            //TODO: Implement
-            return null;
+            var file = _fiDB.getFileFromDB(fileID);
+            return file;
         }
     }
 }
