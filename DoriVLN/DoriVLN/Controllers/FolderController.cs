@@ -28,25 +28,27 @@ namespace DoriVLN.Controllers
             //TODO: implement
             return View();
         }
+        [HttpGet]
+        public ActionResult NewFolder()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult NewFolder(FolderViewModel model)
         {
             if (ModelState.IsValid)
             {
-                /*Scientist newScientist = new Scientist();
-                newScientist.Name = model.Name;
-                newScientist.BirthDate = model.BirthDate;
-                newScientist.Computer = db.Computers.Where(x => x.ID == model.ComputerID).SingleOrDefault();
+                if (_foServ.folderExists(model))
+                {
+                    return View();
+                }
 
-                db.Scientists.Add(newScientist);
-                db.SaveChanges(); */
-
-                Folder newFolder = new Folder();
-                newFolder.name = model.name;
-                return RedirectToAction("Index");
-            }
+                _foServ.createFolder(model);
+                return RedirectToAction("Overview");
+            } 
             return View();
         }
+
 
         public ActionResult DisplayFolders()
         {
