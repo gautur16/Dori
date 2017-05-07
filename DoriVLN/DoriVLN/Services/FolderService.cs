@@ -41,6 +41,11 @@ namespace DoriVLN.Services
            
         }
 
+        public List<Folder> getFolders()
+        {
+            return _foDB.getAllFoldersFromDB();
+        }
+
         public FolderViewModel getFolder()
         {
             return null;
