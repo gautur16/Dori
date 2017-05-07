@@ -27,15 +27,21 @@ namespace DoriVLN.Services
             _uDB.addUserToDB(newUser);
         }
 
-        public bool usernameExists(User user)
+        public bool usernameExists(RegisterViewModel user)
         {
+            User checkUser = new User();
+
+            checkUser.username = user.username;
             
-            return _uDB.usernameExistsInDB(user);
+            return _uDB.usernameExistsInDB(checkUser);
         }
 
-        public bool emailExists(User user)
+        public bool emailExists(RegisterViewModel user)
         {
-            return _uDB.emailExistsInDB(user);
+            User checkUser = new User();
+
+            checkUser.email = user.email;
+            return _uDB.emailExistsInDB(checkUser);
         }
 
         public void resetPassword(User user)

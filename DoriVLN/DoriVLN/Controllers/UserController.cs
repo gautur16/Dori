@@ -5,12 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DoriVLN.Services;
 // using System.Web.Security;
 
 namespace DoriVLN.Controllers
 {
     public class UserController : Controller
     {
+        private UserService _uServ;
+
+        public UserController()
+        {
+            _uServ = new UserService();
+        }
+
         // GET: User
         [HttpGet]
         [AllowAnonymous]
@@ -25,6 +33,18 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (_uServ.usernameExists(registerUser))
+                {
+                    ModelState.AddModelError("username", "This username is taken.");
+                    return View(registerUser);
+                }
+                if (_uServ.emailExists(registerUser))
+                {
+                    ModelState.AddModelError("email", "This email is already in use.");
+                    return View(registerUser);
+                }
+
+                _uServ.addUser(registerUser);
                 return RedirectToAction("Overview", "Folder");
             }
             
