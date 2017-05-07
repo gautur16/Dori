@@ -29,6 +29,10 @@ namespace DoriVLN.Models.ViewModels
 
     public class RegisterViewModel
     {
+        [Required(ErrorMessage = "Please enter your name.")]
+        [Display(Name = "Name")]
+        public string name { get; set; }
+
         [Required(ErrorMessage = "Please enter an email address.")]
         [EmailAddress(ErrorMessage = "This email address is not valid.")]
         [Display(Name = "Email")]

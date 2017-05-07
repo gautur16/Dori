@@ -1,5 +1,6 @@
 ﻿using DoriVLN.Database;
 using DoriVLN.Models.Entity;
+using DoriVLN.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,15 @@ namespace DoriVLN.Services
         {
             _uDB = new UserDatabase();
         }
-        public void addUser(User user)
+        public void addUser(RegisterViewModel user)
         {
-            _uDB.addUserToDB(user);
+            User newUser = new User();
+            newUser.name = user.name;
+            newUser.email = user.email;
+            newUser.password = user.password;
+            newUser.username = user.username;
+
+            _uDB.addUserToDB(newUser);
         }
 
         public bool usernameExists(User user)

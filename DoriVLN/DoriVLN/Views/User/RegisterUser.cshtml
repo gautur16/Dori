@@ -13,6 +13,13 @@
     <div>
         <fieldset>
             <legend>Enter Information</legend>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.name)
+                @Html.ValidationMessageFor(u => u.name)
+            </div>
             <div class="editor-label ">
                 @Html.LabelFor(u => u.email)
             <div>
