@@ -16,12 +16,18 @@ namespace DoriVLN.Controllers
         [AllowAnonymous]
         public ActionResult RegisterUser()
         {
-            return View();
+            RegisterViewModel newUser = new RegisterViewModel();
+            return View(newUser);
         }
 
         [HttpPost]
         public ActionResult RegisterUser(RegisterViewModel registerUser)
         {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Overview", "Folder");
+            }
+            
             return View(registerUser);
         }
 

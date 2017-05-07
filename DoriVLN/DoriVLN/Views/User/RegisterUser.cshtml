@@ -35,10 +35,13 @@
                 @Html.ValidationMessageFor(u => u.password)
             </div>
             <div class="editor-label">
-                @Html.PasswordFor(u => u.confirmPassword)
                 @Html.LabelFor(u => u.confirmPassword)
             </div>
-            <input type="button" value="Register" />
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.confirmPassword)
+                @Html.ValidationMessageFor(u => u.confirmPassword)
+            </div>
+            <input type="submit" value="Register" />
             <input type="button" value="Back" />
         </fieldset>
     </div>
