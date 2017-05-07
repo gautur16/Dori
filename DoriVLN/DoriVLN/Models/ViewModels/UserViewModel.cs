@@ -8,16 +8,17 @@ namespace DoriVLN.Models.ViewModels
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Please enter an email address.")]
         [Display(Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "This email address is not valid.")]
         public string email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter a username")]
         [Display(Name = "Username")]
         public string username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter a password.")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string password { get; set; }
@@ -50,6 +51,14 @@ namespace DoriVLN.Models.ViewModels
         public string confirmPassword { get; set; }
     }
 
+    public class ForgotPasswordViewModel
+    {
+        [Required(ErrorMessage = "Please enter an email address.")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
+        [Display(Name = "Email")]
+        public string email { get; set; }
+    }
+
     public class ResetPasswordViewModel
     {
         [Required]
@@ -69,13 +78,5 @@ namespace DoriVLN.Models.ViewModels
         public string confirmPassword { get; set; }
 
         public string code { get; set; }
-    }
-
-    public class ForgotPasswordViewModel
-    {
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string email { get; set; }
     }
 }

@@ -32,28 +32,37 @@ namespace DoriVLN.Controllers
         }
 
         [HttpGet]
-        public ActionResult ResetPassword()
+        public ActionResult ForgotPassword()
         {
-            //TODO: implement
             return View();
         }
 
         [HttpPost]
-        public ActionResult ResetPassword(ForgotPasswordViewModel forgotPassword)
+        public ActionResult ForgotPassword(ForgotPasswordViewModel forgotPassword)
         {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Login");
+            }
+
             return View(forgotPassword);
         }
 
         [HttpGet]
         public ActionResult Login()
         {
-            return View();
+            LoginViewModel loginUser = new LoginViewModel();
+            return View(loginUser);
         }
         
-        // Remeber to change to LoginViewModel.
         [HttpPost]
         public ActionResult Login(LoginViewModel loginUser)
         {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Overview", "Folder");
+            }
+
             return View(loginUser);
         }
     }
