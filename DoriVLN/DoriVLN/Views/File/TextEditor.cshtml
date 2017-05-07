@@ -1,0 +1,31 @@
+﻿@model DoriVLN.Models.ViewModels.EditorViewModel 
+
+@{
+    ViewBag.Title = "TextEditor";
+}
+
+<h2>TextEditor</h2>
+
+<div id="editor">
+    @ViewBag.Code
+</div>
+
+@using (Html.BeginForm("Save Code", "File", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
+    <input type="submit" value="Save Code"/>
+}
+
+@section scripts
+{
+    <script src="~/3rdParty/src/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.getSession().setMode("ace/mode/javascript");
+       
+        $("form").submit(function () { // Tekur allt inni í text editor og geymir.
+            $("#hidden_editor").val(editor.getSession().getValue());
+        });
+    </script>    
+}

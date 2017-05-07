@@ -219,6 +219,7 @@
     <Compile Include="Models\Entity\User.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ViewModels\EditorViewModel.cs" />
     <Compile Include="Models\ViewModels\FileViewModel.cs" />
     <Compile Include="Models\ViewModels\FolderViewModel.cs" />
     <Compile Include="Models\ViewModels\UserViewModel.cs" />
@@ -294,10 +295,11 @@
     <Content Include="Views\User\RegisterUser.cshtml" />
     <Content Include="Views\Folder\DisplayFolders.cshtml" />
     <Content Include="Views\User\ResetPassword.cshtml" />
+    <Content Include="Views\File\TextEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="3rdParty\src\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
