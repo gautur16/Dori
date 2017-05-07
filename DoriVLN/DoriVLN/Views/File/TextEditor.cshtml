@@ -27,5 +27,28 @@
         $("form").submit(function () { // Tekur allt inni í text editor og geymir.
             $("#hidden_editor").val(editor.getSession().getValue());
         });
+
+        // Autosave
+        var timeoutId;
+        $('textarea').keypress(function () {
+            if (timeoutId) clearTimeout(timeoutId);
+            timeoutId = setTimeout(function () {
+                $.ajax({
+                    url: '/savecomment',
+                    data: { comment: $(this).val() }
+                });
+            }, 750);
+        });
+        var autoSave = function() {
+            saveText();
+            setTimeout(autoSave, 3000);
+        };
+        autoSave();
+        $("#editor").on("keydown", function (b) {
+            if (b.ctrlKey && 83 == b.which) {
+                b.preventDefault();
+                saveText();
+            }
+        });
     </script>    
 }
