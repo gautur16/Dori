@@ -18,9 +18,13 @@ namespace DoriVLN.Services
         }
         
 
-        public void createFolder(Folder folder)
+        public void createFolder(FolderViewModel folder)
         {
-            _foDB.addFolderToDB(folder);
+            Folder newFolder = new Folder();
+            newFolder.name = folder.name;
+
+
+            _foDB.addFolderToDB(newFolder);
         }
 
         public void deleteFolder(Folder folder)
@@ -35,9 +39,12 @@ namespace DoriVLN.Services
             _foDB.setFolderNameInDB(folderID, name);
         }
 
-        public bool folderExists(Folder folder)
+        public bool folderExists(FolderViewModel folder)
         {
-           return _foDB.folderExists(folder);
+            Folder checkFolder = new Folder();
+            checkFolder.name = folder.name;
+
+           return _foDB.folderExists(checkFolder);
            
         }
 
