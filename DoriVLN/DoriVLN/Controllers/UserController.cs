@@ -36,12 +36,12 @@ namespace DoriVLN.Controllers
                 if (_uServ.usernameExists(registerUser))
                 {
                     ModelState.AddModelError("username", "This username is taken.");
-                    return View(registerUser);
+                    return View();
                 }
                 if (_uServ.emailExists(registerUser))
                 {
                     ModelState.AddModelError("email", "This email is already in use.");
-                    return View(registerUser);
+                    return View();
                 }
 
                 _uServ.addUser(registerUser);
