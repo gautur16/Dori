@@ -46,7 +46,7 @@ namespace DoriVLN.Controllers
         
         // Remeber to change to LoginViewModel.
         [HttpPost]
-        public ActionResult Login(UserViewModel loginUser)
+        public ActionResult Login(LoginViewModel loginUser)
         {
             return View(loginUser);
         }
