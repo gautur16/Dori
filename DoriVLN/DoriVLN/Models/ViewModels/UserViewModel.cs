@@ -8,11 +8,6 @@ namespace DoriVLN.Models.ViewModels
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Please enter an email address.")]
-        [Display(Name = "Email")]
-        [EmailAddress(ErrorMessage = "This email address is not valid.")]
-        public string email { get; set; }
-
         [Required(ErrorMessage = "Please enter a username")]
         [Display(Name = "Username")]
         public string username { get; set; }

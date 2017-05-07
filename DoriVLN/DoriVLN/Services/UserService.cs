@@ -44,6 +44,15 @@ namespace DoriVLN.Services
             return _uDB.emailExistsInDB(checkUser);
         }
 
+        public bool wrongPassword(LoginViewModel user)
+        {
+            User checkUser = new User();
+            checkUser.username = user.username;
+            checkUser.password = user.password;
+
+            return _uDB.wrongPassword(checkUser);
+        }
+
         public void resetPassword(User user)
         {
             //TODO: Implement

@@ -80,6 +80,13 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (_uServ.wrongPassword(loginUser))
+                {
+                    ModelState.AddModelError("username", " ");
+                    return View();
+                }
+
+
                 return RedirectToAction("Overview", "Folder");
             }
 
