@@ -1,5 +1,7 @@
 ﻿using DoriVLN.Database;
 using DoriVLN.Models.Entity;
+using DoriVLN.Models.ViewModels;
+using DoriVLN.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,28 +12,39 @@ namespace DoriVLN.Controllers
 {
     public class FolderController : Controller
     {
-        // GET: Folder
-       
+        private FolderService _foServ;
+        public FolderController()
+        {
+            _foServ = new FolderService();
+        }
+        
 
         public ActionResult Overview()
         {
-            return View();
+            return View(_foServ.getFolders());
         }
         public ActionResult RemoveFolder()
         {
             //TODO: implement
             return View();
         }
-
-        /*public ActionResult Overview()
+        [HttpPost]
+        public ActionResult NewFolder(FolderViewModel model)
         {
-            //TODO: implement
-            return View();
-        }*/
+            if (ModelState.IsValid)
+            {
+                /*Scientist newScientist = new Scientist();
+                newScientist.Name = model.Name;
+                newScientist.BirthDate = model.BirthDate;
+                newScientist.Computer = db.Computers.Where(x => x.ID == model.ComputerID).SingleOrDefault();
 
-        public ActionResult NewFolder()
-        {
-            //TODO: implement
+                db.Scientists.Add(newScientist);
+                db.SaveChanges(); */
+
+                Folder newFolder = new Folder();
+                newFolder.name = model.name;
+                return RedirectToAction("Index");
+            }
             return View();
         }
 

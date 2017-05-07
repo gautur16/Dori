@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<DoriVLN.Models.Entity.Folder>
 @{
     ViewBag.Title = "Index";
 }
@@ -16,6 +16,23 @@
         <p>
             @Html.ActionLink("Create Folder", "NewFolder", "Folder")
             Hér viljum við geyma möppu strúktúrinn.
+
+            <table>
+                <tr>
+                    <th>
+                        Folder name
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                    </tr>
+                }
+            </table>
         </p>
     </div>
     <div class="col-md-4">

@@ -32,6 +32,10 @@ namespace DoriVLN.Database
                 _db.SaveChanges();
             }
         }
+        public List<Folder> getAllFoldersFromDB()
+        {
+            return _db.Folders.ToList();
+        }
 
         public Folder getFolderFromDB(int folderID)
         {
