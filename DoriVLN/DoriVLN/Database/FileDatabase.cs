@@ -70,5 +70,13 @@ namespace DoriVLN.Database
             var retVal = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType);
             return retVal.ownerID;
         }
+
+
+        public string getUsername(int ID)
+        {
+            var result = _db.Users.SingleOrDefault(u => u.ID == ID);
+
+            return result.username;
+        }
     }
 }
