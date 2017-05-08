@@ -10,6 +10,7 @@ using DoriVLN.Services;
 
 namespace DoriVLN.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private UserService _uServ;
@@ -29,6 +30,7 @@ namespace DoriVLN.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult RegisterUser(RegisterViewModel registerUser)
         {
             if (ModelState.IsValid)
@@ -52,12 +54,14 @@ namespace DoriVLN.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult ForgotPassword(ForgotPasswordViewModel forgotPassword)
         {
             if (ModelState.IsValid)
@@ -69,6 +73,7 @@ namespace DoriVLN.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Login()
         {
             LoginViewModel loginUser = new LoginViewModel();
@@ -76,6 +81,7 @@ namespace DoriVLN.Controllers
         }
         
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Login(LoginViewModel loginUser)
         {
             if (ModelState.IsValid)
