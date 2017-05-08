@@ -31,7 +31,7 @@ namespace DoriVLN.Services
             FileViewModel viewModel = new FileViewModel();
             viewModel.name = file.name;
             viewModel.fileType = file.fileType;
-            viewModel.
+           // viewModel.owner = _fiDB.getUsername()
             //TODO: How does one display the file's data from the database???
 
             return viewModel;
