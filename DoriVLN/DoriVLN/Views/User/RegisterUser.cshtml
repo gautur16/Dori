@@ -4,15 +4,15 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Register New User</h2>
+<h2 align="center">Register New User</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true, "Something went wrong. Check your details.");
-    <div>
+    <div class="flexbox" style="display: flex; flex-flow: row wrap; justify-content: center;">
         <fieldset>
-            <legend>Enter Information</legend>
+            <legend align="center">Enter Information</legend>
             <div class="editor-label">
                 @Html.LabelFor(u => u.name)
             </div>
@@ -48,6 +48,7 @@
                 @Html.PasswordFor(u => u.confirmPassword)
                 @Html.ValidationMessageFor(u => u.confirmPassword)
             </div>
+            <br>
             <input type="submit" value="Register" />
             <input type="button" value="Back" />
         </fieldset>
