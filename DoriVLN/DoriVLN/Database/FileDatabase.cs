@@ -59,13 +59,16 @@ namespace DoriVLN.Database
         {
             
             var retFile = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType && file.ownerID == f.ownerID);
-            if (retFile == null)
-            {
-                //TODO: throw NotFoundException...
-            }
+            
             
                 return retFile.ID;
             
+        }
+
+        public int getFileOwnerID(File file)
+        {
+            var retVal = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType);
+            return retVal.ownerID;
         }
     }
 }

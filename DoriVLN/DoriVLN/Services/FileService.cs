@@ -64,5 +64,14 @@ namespace DoriVLN.Services
             var file = _fiDB.getFileFromDB(fileID);
             return file;
         }
+
+        public int getFileID(FileViewModel model)
+        {
+            File file = new File();
+            file.name = model.name;
+            file.fileType = model.fileType;
+            file.ownerID = _fiDB.getFileOwnerID(file);
+            return _fiDB.getFileID(file);
+        }
     }
 }

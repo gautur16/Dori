@@ -5,12 +5,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DoriVLN.Services;
 // using System.Web.Security;
 
 namespace DoriVLN.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
+        private UserService _uServ;
+
+        public UserController()
+        {
+            _uServ = new UserService();
+        }
+
         // GET: User
         [HttpGet]
         [AllowAnonymous]
@@ -21,10 +30,23 @@ namespace DoriVLN.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult RegisterUser(RegisterViewModel registerUser)
         {
             if (ModelState.IsValid)
             {
+                if (_uServ.usernameExists(registerUser))
+                {
+                    ModelState.AddModelError("username", "This username is taken.");
+                    return View();
+                }
+                if (_uServ.emailExists(registerUser))
+                {
+                    ModelState.AddModelError("email", "This email is already in use.");
+                    return View();
+                }
+
+                _uServ.addUser(registerUser);
                 return RedirectToAction("Overview", "Folder");
             }
             
@@ -32,12 +54,14 @@ namespace DoriVLN.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult ForgotPassword(ForgotPasswordViewModel forgotPassword)
         {
             if (ModelState.IsValid)
@@ -49,6 +73,7 @@ namespace DoriVLN.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Login()
         {
             LoginViewModel loginUser = new LoginViewModel();
@@ -56,10 +81,18 @@ namespace DoriVLN.Controllers
         }
         
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Login(LoginViewModel loginUser)
         {
             if (ModelState.IsValid)
             {
+                if (_uServ.wrongPassword(loginUser))
+                {
+                    ModelState.AddModelError("username", " ");
+                    return View();
+                }
+
+                _uServ.setLoginStatus(true, _uServ.getUserID(loginUser.username));
                 return RedirectToAction("Overview", "Folder");
             }
 

@@ -8,10 +8,10 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true, "Login failed. Check your login details.");
+    @Html.ValidationSummary(true, "Username or password is incorrect. Please try again.");
     <div>
         <fieldset>
-            <legend>Login</legend>
+            <legend>Please enter your login credentials</legend>
             <div class="editor-label">
                 @Html.LabelFor(u => u.username)
             </div>

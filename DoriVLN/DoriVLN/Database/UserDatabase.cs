@@ -45,5 +45,36 @@ namespace DoriVLN.Database
             }
 
         }
+
+        public bool wrongPassword(User user)
+        {
+            var retUser = _db.Users.SingleOrDefault(u => u.username == user.username);
+            if(retUser != null)
+            {
+                if(retUser.password != user.password)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            return true;
+
+        }
+
+        public int getUserIDByUsername(string username)
+        {
+            var retVal = _db.Users.SingleOrDefault(u => u.username == username);
+
+            return retVal.ID;
+        }
+
+        public void setLoginStatus(bool login, int userID)
+        {
+            var result = _db.Users.SingleOrDefault(u => u.ID == userID);
+            result.isLoggedIn = login;
+            _db.SaveChanges();
+        }
     }
 }
