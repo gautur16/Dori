@@ -19,6 +19,7 @@ namespace DoriVLN.Controllers
         public ActionResult TextEditor()
         {
             ViewBag.Code = "alert('Hello World!');";
+            ViewBag.DocumentID = 17;
             return View();
         }
         
