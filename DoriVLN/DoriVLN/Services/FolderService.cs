@@ -22,6 +22,7 @@ namespace DoriVLN.Services
         {
             Folder newFolder = new Folder();
             newFolder.name = folder.name;
+            newFolder.ownerID = _foDB.getLoggedInUserID();
 
 
             _foDB.addFolderToDB(newFolder);
