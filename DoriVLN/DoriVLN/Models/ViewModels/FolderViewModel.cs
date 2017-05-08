@@ -8,10 +8,6 @@ namespace DoriVLN.Models.ViewModels
     public class FolderViewModel
     {
         public string name { get; set; }
-    }
-
-    public class CreateFolderViewModel
-    {
-        public string name { get; set; }
+        public string owner { get; set; }
     }
 }
