@@ -4,14 +4,14 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<h2 align="center">Dóri</h2>
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true, "Username or password is incorrect. Please try again.");
-    <div>
+    <div class="flexbox" style="display: flex; flex-flow: row wrap; justify-content: center;">
         <fieldset>
-            <legend>Please enter your login credentials</legend>
+            <legend align="center">Log in</legend>
             <div class="editor-label">
                 @Html.LabelFor(u => u.username)
             </div>
@@ -30,8 +30,8 @@
                 @Html.CheckBoxFor(u => u.rememberMe)
                 @Html.LabelFor(u => u.rememberMe)
             </div>
-            <span> @Html.ActionLink("Register New User", "RegisterUser", "User") </span>
-            <span> @Html.ActionLink("Forgot Password", "ResetPassword", "User") </span>
+            <span> @Html.ActionLink("Register", "RegisterUser", "User") </span>
+            <span> @Html.ActionLink("Forgot Password", "ResetPassword", "User") </span><br>
             <input type="submit" value="Log In" />
         </fieldset>
     </div>
