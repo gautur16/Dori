@@ -10,5 +10,6 @@ namespace DoriVLN.Models.Entity
         public int ID { get; set; }
         public string name { get; set; }
         public int ownerID { get; set; }
+        public int parentFolderID { get; set; }
     }
 }

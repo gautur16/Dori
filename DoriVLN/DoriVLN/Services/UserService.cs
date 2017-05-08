@@ -57,5 +57,15 @@ namespace DoriVLN.Services
         {
             //TODO: Implement
         }
+
+        public void setLoginStatus(bool login, int userID)
+        {
+            _uDB.setLoginStatus(login, userID);
+        } 
+
+        public int getUserID(string userName)
+        {
+            return _uDB.getUserIDByUsername(userName);
+        }
     }
 }

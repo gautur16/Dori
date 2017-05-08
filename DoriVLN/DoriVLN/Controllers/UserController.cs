@@ -86,7 +86,7 @@ namespace DoriVLN.Controllers
                     return View();
                 }
 
-
+                _uServ.setLoginStatus(true, _uServ.getUserID(loginUser.username));
                 return RedirectToAction("Overview", "Folder");
             }
 
