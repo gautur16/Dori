@@ -11,17 +11,7 @@ namespace DoriVLN.Models.ViewModels
       //  public longtext content { get; set; }
         public string fileType { get; set; }
         public DateTime dateTime { get; set; }
-    }
-
-    public class CreateFileViewModel
-    {
-        public string name { get; set; }
-        public string fileType { get; set; }
-    }
-
-    public class RemoveFileViewModel
-    {
-        // TODO: Implement
+        public string owner { get; set; }
     }
 
     public class ShareFileViewModel
