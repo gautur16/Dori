@@ -65,5 +65,12 @@ namespace DoriVLN.Database
             }
             return false;
         }
+
+        public int getLoggedInUserID()
+        {
+            var result = _db.Users.SingleOrDefault(u => u.isLoggedIn == true);
+
+            return result.ID;
+        }
     }
 }
