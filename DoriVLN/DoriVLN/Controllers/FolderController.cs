@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace DoriVLN.Controllers
 {
+    [Authorize]
     public class FolderController : Controller
     {
         private FolderService _foServ;
