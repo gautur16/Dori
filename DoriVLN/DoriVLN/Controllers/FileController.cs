@@ -22,7 +22,12 @@ namespace DoriVLN.Controllers
             ViewBag.DocumentID = 17;
             return View();
         }
-        
+
+        public ActionResult Chat()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult SaveCode(EditorViewModel model)
         {

@@ -216,7 +216,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Hubs\CodeHub.cs" />
+    <Compile Include="Hubs\Startup.cs" />
     <Compile Include="Migrations\201705041433228_init.cs" />
     <Compile Include="Migrations\201705041433228_init.Designer.cs">
       <DependentUpon>201705041433228_init.cs</DependentUpon>
@@ -325,6 +327,7 @@
     <Content Include="Views\Folder\DisplayFolders.cshtml" />
     <Content Include="Views\User\ResetPassword.cshtml" />
     <Content Include="Views\File\TextEditor.cshtml" />
+    <Content Include="Views\File\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="3rdParty\src\" />
