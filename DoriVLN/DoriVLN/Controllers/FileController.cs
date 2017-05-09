@@ -18,15 +18,15 @@ namespace DoriVLN.Controllers
 
         public ActionResult TextEditor()
         {
-            ViewBag.Code = "alert('Hello World!');";
+            ViewBag.Code = "Hello there :) Welcome to your new file!";
             ViewBag.DocumentID = 17;
             return View();
         }
 
-        public ActionResult Chat()
+        /*public ActionResult Chat()
         {
             return View();
-        }
+        }*/
 
         [HttpPost]
         public ActionResult SaveCode(EditorViewModel model)
