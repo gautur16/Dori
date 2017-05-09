@@ -32,9 +32,10 @@ namespace DoriVLN.Database
                 _db.SaveChanges();
             }
         }
-        public List<Folder> getAllFoldersFromDB()
+        public List<Folder> getFoldersFromDBByUserID(int userID)
         {
-            return _db.Folders.ToList();
+            var result = _db.Folders.Where(f => f.ownerID == userID).ToList();
+            return result;
         }
 
         public Folder getFolderFromDB(int folderID)
@@ -66,11 +67,12 @@ namespace DoriVLN.Database
             return false;
         }
 
-        public int getLoggedInUserID()
-        {
-            var result = _db.Users.SingleOrDefault(u => u.isLoggedIn == true);
-
+       public int getUserIDByEmail(string email)
+       {
+            var result = _db.Users.SingleOrDefault(u => u.email == email);
             return result.ID;
-        }
+       }
+
+
     }
 }

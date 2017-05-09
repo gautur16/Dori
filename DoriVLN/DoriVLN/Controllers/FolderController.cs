@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace DoriVLN.Controllers
 {
@@ -22,7 +23,7 @@ namespace DoriVLN.Controllers
 
         public ActionResult Overview()
         {
-            return View(_foServ.getFolders());
+            return View(_foServ.getFoldersByID(_foServ.getUserIDByEmail(User.Identity.GetUserName())));
         }
         public ActionResult RemoveFolder()
         {
@@ -32,6 +33,7 @@ namespace DoriVLN.Controllers
         [HttpGet]
         public ActionResult NewFolder()
         {
+            
             return View();
         }
         [HttpPost]
@@ -44,7 +46,7 @@ namespace DoriVLN.Controllers
                     return View();
                 }
 
-                _foServ.createFolder(model);
+                _foServ.createFolder(model, _foServ.getUserIDByEmail(User.Identity.GetUserName()));
                 return RedirectToAction("Overview");
             } 
             return View();

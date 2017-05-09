@@ -18,11 +18,11 @@ namespace DoriVLN.Services
         }
         
 
-        public void createFolder(FolderViewModel folder)
+        public void createFolder(FolderViewModel folder, int ID)
         {
             Folder newFolder = new Folder();
             newFolder.name = folder.name;
-            newFolder.ownerID = _foDB.getLoggedInUserID();
+            newFolder.ownerID = ID;
 
 
             _foDB.addFolderToDB(newFolder);
@@ -49,14 +49,21 @@ namespace DoriVLN.Services
            
         }
 
-        public List<Folder> getFolders()
+        public List<Folder> getFoldersByID(int ID)
         {
-            return _foDB.getAllFoldersFromDB();
+            return _foDB.getFoldersFromDBByUserID(ID);
         }
 
         public FolderViewModel getFolder()
         {
             return null;
         }
+
+        public int getUserIDByEmail(string email)
+        {
+            return _foDB.getUserIDByEmail(email);
+        }
+
+
     }
 }

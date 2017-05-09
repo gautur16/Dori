@@ -78,5 +78,12 @@ namespace DoriVLN.Database
 
             return result.username;
         }
+
+        public int getUserIDByEmail(string email)
+        {
+            var result = _db.Users.SingleOrDefault(u => u.email == email);
+
+            return result.ID;
+        }
     }
 }
