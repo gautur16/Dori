@@ -1,6 +1,6 @@
 ﻿using DoriVLN.Database;
 using DoriVLN.Models.Entity;
-using DoriVLN.Models.ViewModels;
+using DoriVLN.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,19 +19,18 @@ namespace DoriVLN.Services
         public void addUser(RegisterViewModel user)
         {
             User newUser = new User();
-            newUser.name = user.name;
-            newUser.email = user.email;
-            newUser.password = user.password;
-            newUser.username = user.username;
+            newUser.email = user.Email;
+            newUser.password = user.Password;
+            newUser.username = user.Username;
 
             _uDB.addUserToDB(newUser);
         }
-
+        /*
         public bool usernameExists(RegisterViewModel user)
         {
             User checkUser = new User();
 
-            checkUser.username = user.username;
+            checkUser.username = user.Username;
             
             return _uDB.usernameExistsInDB(checkUser);
         }
@@ -40,18 +39,20 @@ namespace DoriVLN.Services
         {
             User checkUser = new User();
 
-            checkUser.email = user.email;
+            checkUser.email = user.Email;
             return _uDB.emailExistsInDB(checkUser);
         }
 
+        
         public bool wrongPassword(LoginViewModel user)
         {
             User checkUser = new User();
-            checkUser.username = user.username;
-            checkUser.password = user.password;
+            checkUser.username = user.Username;
+            checkUser.password = user.Password;
 
             return _uDB.wrongPassword(checkUser);
         }
+        
 
         public void resetPassword(User user)
         {
@@ -67,5 +68,6 @@ namespace DoriVLN.Services
         {
             return _uDB.getUserIDByUsername(userName);
         }
+        */
     }
 }
