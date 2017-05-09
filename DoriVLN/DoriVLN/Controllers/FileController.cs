@@ -18,7 +18,7 @@ namespace DoriVLN.Controllers
 
         public ActionResult TextEditor()
         {
-            ViewBag.Code = "Hello there :) Welcome to your new file!";
+            ViewBag.Code = "//Hello there :) Welcome to your new file!";
             ViewBag.DocumentID = 17;
             return View();
         }
