@@ -1,17 +1,17 @@
 ﻿@model DoriVLN.Models.ViewModels.FolderViewModel
 
 @{
-    ViewBag.Title = "NewFolder";
+    ViewBag.Title = "Create folder";
 }
 
-<h2>NewFolder</h2>
+<h2>Create folder</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>FolderViewModel</h4>
+        <h4>Create a new folder: </h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

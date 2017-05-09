@@ -327,6 +327,7 @@
     <Content Include="Views\Folder\DisplayFolders.cshtml" />
     <Content Include="Views\File\TextEditor.cshtml" />
     <Content Include="Views\File\Chat.cshtml" />
+    <Content Include="Views\File\NewFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="3rdParty\src\" />
