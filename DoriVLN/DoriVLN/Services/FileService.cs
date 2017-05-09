@@ -39,9 +39,13 @@ namespace DoriVLN.Services
 
         public void createFile(FileViewModel model, int ownerID)
         {
+            DateTime date = new DateTime();
+            date = DateTime.Now;
             File file = new File();
             file.fileType = model.fileType;
-            //TODO: add more stuff....
+            file.ownerID = ownerID;
+            file.name = model.name;
+            file.dateTime = date.ToString();
             _fiDB.addFileToDB(file);
         }
 

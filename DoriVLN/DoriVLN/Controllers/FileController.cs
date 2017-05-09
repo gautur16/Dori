@@ -30,7 +30,6 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.dateTime = new DateTime();
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
 
                 return RedirectToAction("TextEditor");
