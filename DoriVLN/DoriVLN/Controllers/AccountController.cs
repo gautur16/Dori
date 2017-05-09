@@ -169,7 +169,7 @@ namespace DoriVLN.Controllers
 
                     _uServ.addUser(model);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Overview", "Folder");
                 }
                 AddErrors(result);
             }
@@ -362,7 +362,7 @@ namespace DoriVLN.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Manage");
+                return RedirectToAction("Overview", "Folder");
             }
 
             if (ModelState.IsValid)
