@@ -26,12 +26,12 @@
         var documentID = @ViewBag.DocumentID;
 
         var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/monokai");
+        editor.setTheme("ace/theme/dawn");
         editor.getSession().setMode("ace/mode/javascript");
        
         $("form").submit(function () { // Tekur allt inni í text editor og geymir.
             $("#hidden_editor").val(editor.getSession().getValue());
-        });
+            });
 
         var codeHub = $.connection.codeHub;
         var silent = false;
