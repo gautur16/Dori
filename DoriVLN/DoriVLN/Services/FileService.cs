@@ -37,8 +37,11 @@ namespace DoriVLN.Services
             return viewModel;
         }
 
-        public void createFile(File file)
+        public void createFile(FileViewModel model, int ownerID)
         {
+            File file = new File();
+            file.fileType = model.fileType;
+            //TODO: add more stuff....
             _fiDB.addFileToDB(file);
         }
 
@@ -73,6 +76,11 @@ namespace DoriVLN.Services
             file.fileType = model.fileType;
             file.ownerID = _fiDB.getFileOwnerID(file);
             return _fiDB.getFileID(file);
+        }
+
+        public int getUserIDByEmail(string email)
+        {
+            return _fiDB.getUserIDByEmail(email);
         }
     }
 }
