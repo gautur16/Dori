@@ -56,6 +56,22 @@
                 codeHub.server.onChange(obj, documentID);
             });
         });
+
+       /* var timeoutId;
+        $("#hidden_editor").on('input propertychange change', function() {
+            console.log('Textarea Change');
+
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(function() {
+                // Runs 1 second (1000 ms) after the last change    
+                saveToDB();
+            }, 1000);
+        });
+
+        function saveToDB()
+        {
+            console.log('Saving to the db');    
+        }*/
         /*
         // Autosave
         var timeoutId;
