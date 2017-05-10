@@ -3,18 +3,24 @@
 @{
     ViewBag.Title = "TextEditor";
 }
+<div class="row">
+    <div class="col-md-3">
+        <p>Hérna gæti komið listi</p>
+    </div>
+    <div class="col-md-9">
+    <h2>TextEditor</h2>
 
-<h2>TextEditor</h2>
+    <div id="editor">
+        @ViewBag.Code
+    </div>
 
-<div id="editor">
-    @ViewBag.Code
+    @using (Html.BeginForm("Save Code", "File", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
+        <input type="submit" value="Save Code"/>
+    }
+    </div>
 </div>
-
-@using (Html.BeginForm("Save Code", "File", FormMethod.Post))
-{
-    @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
-    <input type="submit" value="Save Code"/>
-}
 
 @section scripts
 {
