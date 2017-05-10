@@ -20,8 +20,9 @@ namespace DoriVLN.Controllers
         // GET: File
         [HttpGet]
         public ActionResult NewFile()
-        {  
-            return View("NewFile");
+        {
+            ModelState.Clear();
+            return View(new FileViewModel());
         }
 
         [HttpPost]
@@ -30,7 +31,8 @@ namespace DoriVLN.Controllers
             if (ModelState.IsValid)
             {
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
-                return View("NewFile");
+                ModelState.Clear();
+                return View(new FileViewModel());
             }
 
             return View();
