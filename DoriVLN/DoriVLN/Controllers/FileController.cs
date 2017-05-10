@@ -34,8 +34,14 @@ namespace DoriVLN.Controllers
             {
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
                 ModelState.Clear();
-                return View(new FileViewModel());
+                EditorViewModel tempModel = new EditorViewModel();
+                tempModel.fileName = model.name;
+                tempModel.Content = model.content;
+
+                return View();
             }
+
+
 
             return View();
         }
@@ -57,7 +63,7 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
-               // _fiServ.editFile(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model);
+                _fiServ.saveCode(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()) , model.fileName);
             }
 
             return View("TextEditor");

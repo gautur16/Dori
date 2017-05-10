@@ -94,5 +94,11 @@ namespace DoriVLN.Services
         {
             return _fiDB.getUserIDByEmail(email);
         }
+
+
+        public void saveCode(EditorViewModel model, int userID, string name)
+        {
+            _fiDB.saveCode(userID, name, model);
+        }
     }
 }

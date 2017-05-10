@@ -8,5 +8,6 @@ namespace DoriVLN.Models.ViewModels
     public class EditorViewModel
     {
         public string Content { get; set; }
+        public string fileName { get; set; }
     }
 }

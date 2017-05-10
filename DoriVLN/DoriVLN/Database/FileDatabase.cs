@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using DoriVLN.Models.ViewModels;
 
 namespace DoriVLN.Database
 {
@@ -93,6 +94,15 @@ namespace DoriVLN.Database
             var result = _db.Users.SingleOrDefault(u => u.email == email);
 
             return result.ID;
+        }
+
+        public void saveCode(int userID, string name, EditorViewModel model)
+        {
+            var result = _db.Files.SingleOrDefault(f => f.ownerID == userID && f.name == name);
+
+            result.content = model.Content;
+            _db.SaveChanges();
+
         }
     }
 }
