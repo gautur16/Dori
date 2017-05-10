@@ -11,7 +11,7 @@ namespace DoriVLN.Models.Entity
         public string name     { get; set; }
         public string fileType { get; set; }
         public int ownerID     { get; set; }
-        //longText content 
+        public string content { get; set; }
         public string dateTime { get; set; }
         public int parentFolderID { get; set;}
     }
