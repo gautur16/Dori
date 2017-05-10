@@ -56,6 +56,13 @@ namespace DoriVLN.Controllers
             return View("File");
         }
 
+
+        public ActionResult DisplayFiles()
+        {
+            var result = _fiServ.getFiles(_fiServ.getUserIDByEmail(User.Identity.GetUserName()));
+            return View(result);
+        }
+
         public ActionResult RemoveFile()
         {
             //TODO: implement

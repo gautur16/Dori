@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DoriVLN.Models.Entity.File>
+@{
+    ViewBag.Title = "DisplayFolders";
+}
+
+<p> Hér myndi listinn af skrám koma: </p>
+
+@Html.ActionLink("Create New File", "NewFile", "File");
+
+
+
+<style>
+    table.FileTable, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+
+    th {
+        text-align: left;
+    }
+</style>
+
+<table class="FileTable" style="width:100%">
+    <tr>
+        <th>File Name</th>
+        <th>FileType</th>
+        <th>Last Modified</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.name</td>
+            <td>@item.fileType</td>
+            <td>@item.dateTime</td>
+        </tr>
+    }
+        </table>
+
+

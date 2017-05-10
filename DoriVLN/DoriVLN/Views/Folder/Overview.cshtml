@@ -53,91 +53,9 @@
     <div class="col-md-8">
         <h2>Files</h2>
             <div class="table-responsive">
-                <table class="table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>
-                                File Name
-                            </th>
-                            <th>
-                                File Type
-                            </th>
-                            <th>
-                                Date Modified
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                @RenderPage("~/Views/Folder/DisplayFolders.cshtml")
-                            </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                content_file_1
-                            </td>
-                            <td>
-                                HTML
-                            </td>
-                            <td>
-                                10.05.2017
-                            </td>
-                            <td>
-                                <input type="submit" value="Share" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                content_file_2
-                            </td>
-                            <td>
-                                HTML
-                            </td>
-                            <td>
-                                09.05.2017
-                            </td>
-                            <td>
-                                <input type="submit" value="Share" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                content_file_3
-                            </td>
-                            <td>
-                                CSS
-                            </td>
-                            <td>
-                                11.05.2017
-                            </td>
-                            <td>
-                                <input type="submit" value="Share" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                content_file_4
-                            </td>
-                            <td>
-                                SuperJavascript
-                            </td>
-                            <td>
-                                10.05.2032
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> 
+                @{Html.RenderAction("DisplayFiles", "File");}    
             </div>
-        <input type="submit" style="float: right" value="Delete Selected" />
 
-                   
-
-        
-        
         <!--
         <p>
             Hér er text editor prototype

@@ -21,6 +21,14 @@ namespace DoriVLN.Database
             return retFile;
         }
 
+
+        public List<File> getFileFromDBByUserID(int userID)
+        {
+            var result = _db.Files.Where(u => u.ownerID == userID).ToList();
+            return result;
+        }
+
+
         public void removeFileFromDB(int fileID)
         {
             var file = _db.Files.SingleOrDefault(f => f.ID == fileID);
