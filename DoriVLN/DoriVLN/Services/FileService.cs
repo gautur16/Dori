@@ -60,12 +60,14 @@ namespace DoriVLN.Services
             _fiDB.removeFileFromDB(fileID);
         }
 
-        public void editFile(int fileID, FileViewModel file)
+        public void editFile(int userID, FileViewModel file)
         {
             File editedFile = new File();
             editedFile.name = file.name;
             editedFile.fileType = file.fileType;
-            _fiDB.editFileInDB(fileID, editedFile);
+            editedFile.content = file.content;
+            editedFile.ownerID = userID;
+            _fiDB.editFileInDB(editedFile);
         }
 
         public bool fileExists(File file)

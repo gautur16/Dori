@@ -14,7 +14,7 @@
         @ViewBag.Code
     </div>
 
-    @using (Html.BeginForm("Save Code", "File", FormMethod.Post))
+    @using (Html.BeginForm("SaveCode", "File", FormMethod.Post))
     {
         @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
         <input type="submit" value="Save Code"/>

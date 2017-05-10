@@ -55,7 +55,12 @@ namespace DoriVLN.Controllers
         [HttpPost]
         public ActionResult SaveCode(EditorViewModel model)
         {
-            return View("File");
+            if (ModelState.IsValid)
+            {
+               // _fiServ.editFile(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model);
+            }
+
+            return View("TextEditor");
         }
 
 
@@ -74,6 +79,16 @@ namespace DoriVLN.Controllers
         public ActionResult Share()
         {
             //TODO: implement
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(FileViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _fiServ.editFile(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model);
+            }
             return View();
         }
     }

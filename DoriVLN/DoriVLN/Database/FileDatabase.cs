@@ -42,12 +42,13 @@ namespace DoriVLN.Database
             _db.SaveChanges();
         }
 
-        public void  editFileInDB(int fileID, File newfile)
+        public void  editFileInDB(File newfile)
         {
-            var file = _db.Files.SingleOrDefault(f => f.ID == fileID);
+            var file = _db.Files.SingleOrDefault(f => f.ownerID == newfile.ownerID && f.name == newfile.name);
 
             file.name = newfile.name;
             file.fileType = newfile.fileType;
+            file.content = newfile.content;
             _db.SaveChanges();
 
         }
