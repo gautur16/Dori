@@ -46,6 +46,8 @@ namespace DoriVLN.Services
             file.ownerID = ownerID;
             file.name = model.name;
             file.dateTime = date.ToString();
+
+            _fiDB.addFileToDB(file);
         }
 
         public List<File> getFiles(int userID)
