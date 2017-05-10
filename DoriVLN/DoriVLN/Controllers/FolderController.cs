@@ -28,7 +28,7 @@ namespace DoriVLN.Controllers
         [HttpPost]
         public ActionResult DeleteFolder(FolderViewModel folder)
         {
-            //var delFolder = _foServ.
+            int delID = _foServ.getFolderID(folder, _foServ.getUserIDByEmail(User.Identity.GetUserName()));
             return View("Overview");
         }
 

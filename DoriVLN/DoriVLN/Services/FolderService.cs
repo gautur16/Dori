@@ -64,5 +64,13 @@ namespace DoriVLN.Services
         }
 
 
+        public int getFolderID(FolderViewModel model, int userID)
+        {
+            Folder folder = new Folder();
+            folder.name = model.name;
+            folder.ownerID = userID;
+            return _foDB.getFolderID(folder);
+        }
+
     }
 }
