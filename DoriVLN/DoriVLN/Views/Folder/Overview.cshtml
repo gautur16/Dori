@@ -5,46 +5,136 @@
 
 <div class="jumbotron">
     <h1>Dóri V2</h1>
-    <p class="lead">
-        Dóri er geggjað forrit sem gerir þér kleift að vinna með alls konar skjöl með öðrum.
-    </p>
+    <form>
+        <input type="text" placeholder="Dummy leitarvél..."/>
+        <input type="submit" value="Search"/>
+    </form>
+    <!--
+       <p class="lead">
+        Hér kæmi leitarvél (ef tími vinnst til).
+        </p> 
+    -->
+    
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>Folders</h2>
         <p>
-            @Html.ActionLink("Create Folder", "NewFolder", "Folder")
-            Hér viljum við geyma möppu strúktúrinn.
-
-            <table>
-                <tr>
-                    <th>
-                        Folder name
-                    </th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
+            <div class="table-responsive">
+                <table class="table-striped" style="width:100%">
+                <thead>
                     <tr>
-                        <td>
-                            @Html.ActionLink(item.name, "Overview", "Folder")
-                        </td>
+                        <th>
+                            Folder name
+                        </th>
                     </tr>
-                }
-            </table>
-        </p>
+                </thead>    
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Create Folder", "NewFolder", "Folder")
+                            </td>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(item.name, "Overview", "Folder")
+                                </td>
+                            </tr>
+                        }
+                   </tbody>
+                    </table>
+                </div>
+    <input type="submit" value="Delete Selected"/>
+</p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-8">
         <h2>Files</h2>
+            <div class="table-responsive">
+                <table class="table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                File Name
+                            </th>
+                            <th>
+                                File Type
+                            </th>
+                            <th>
+                                Date Modified
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @RenderPage("~/Views/Folder/DisplayFolders.cshtml")
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                content_file_1
+                            </td>
+                            <td>
+                                HTML
+                            </td>
+                            <td>
+                                10.05.2017
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                content_file_2
+                            </td>
+                            <td>
+                                HTML
+                            </td>
+                            <td>
+                                09.05.2017
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                content_file_3
+                            </td>
+                            <td>
+                                CSS
+                            </td>
+                            <td>
+                                11.05.2017
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                content_file_4
+                            </td>
+                            <td>
+                                SuperJavascript
+                            </td>
+                            <td>
+                                10.05.2032
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+        <input type="submit" style="float: right" value="Delete Selected" />
+
+                   
+
+        
+        
+        <!--
         <p>
             Hér er text editor prototype
             <a href="/File/TextEditor">Text Editor</a>
         </p>
-        <p>
-            Hér viljum við birta lista af skrám sem eru inni í valdri möppu.
-            @RenderPage("~/Views/Folder/DisplayFolders.cshtml")
-        </p>
+        -->
+       
     </div>
 </div>
 
