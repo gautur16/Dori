@@ -11,7 +11,7 @@ namespace DoriVLN.Models.ViewModels
         [Display(Name = "File name")]
         [Required(ErrorMessage = "Please enter file name.")]
         public string name { get; set; }
-        public string ownerID { get; set; }
+        public int ownerID { get; set; }
         [Display(Name = "File type")]
         [Required]
         public string fileType { get; set; }

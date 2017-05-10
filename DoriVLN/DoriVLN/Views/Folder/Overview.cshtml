@@ -54,6 +54,7 @@
         <h2>Files</h2>
             <div class="table-responsive">
                 @{Html.RenderAction("DisplayFiles", "File");}    
+                @Html.ActionLink("Create File","NewFile", "File")
             </div>
 
         <!--

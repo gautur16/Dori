@@ -6,6 +6,9 @@
 <div class="row">
     <div class="col-md-3">
         <p>Hérna gæti komið listi</p>
+        <p>Editing: @Model.fileName</p>
+@{ TempData["fileName"] = Model.fileName; }
+
     </div>
     <div class="col-md-9">
     <h2>TextEditor</h2>
@@ -22,6 +25,7 @@
     </div>
 </div>
 
+
 @section scripts
 {
     <script src="~/3rdParty/src/ace.js" type="text/javascript" charset="utf-8"></script>
@@ -37,7 +41,9 @@
        
         $("form").submit(function () { // Tekur allt inni í text editor og geymir.
             $("#hidden_editor").val(editor.getSession().getValue());
-            });
+        });
+
+       
 
       /*  var codeHub = $.connection.codeHub;
         var silent = false;
@@ -101,5 +107,7 @@
                 saveText();
             }
         });*/
-    </script>    
+    </script>   
+    
+     
 }

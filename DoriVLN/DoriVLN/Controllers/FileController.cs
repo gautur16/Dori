@@ -32,13 +32,12 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
                 ModelState.Clear();
                 EditorViewModel tempModel = new EditorViewModel();
                 tempModel.fileName = model.name;
-                tempModel.Content = model.content;
-
-                return View();
+                return RedirectToAction("TextEditor", tempModel);
             }
 
 
@@ -46,11 +45,12 @@ namespace DoriVLN.Controllers
             return View();
         }
 
-        public ActionResult TextEditor()
+        public ActionResult TextEditor(EditorViewModel model)
         {
             ViewBag.Code = "//Hello there :) Welcome to your new file!";
             ViewBag.DocumentID = 17;
-            return View();
+
+            return View(model);
         }
 
         /*public ActionResult Chat()
@@ -63,10 +63,11 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.fileName = TempData["fileName"].ToString();
                 _fiServ.saveCode(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()) , model.fileName);
             }
 
-            return View("TextEditor");
+            return RedirectToAction("Overview","Folder");
         }
 
 
