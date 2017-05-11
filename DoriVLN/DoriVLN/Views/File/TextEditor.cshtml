@@ -37,7 +37,8 @@
 
         var editor = ace.edit("editor");
         editor.setTheme("ace/theme/dawn");
-        editor.getSession().setMode("ace/mode/javascript");
+       
+        editor.getSession().setMode("ace/mode/@Model.fileType");
        
         $("form").submit(function () { // Tekur allt inni í text editor og geymir.
             $("#hidden_editor").val(editor.getSession().getValue());
