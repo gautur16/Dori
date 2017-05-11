@@ -27,10 +27,10 @@ namespace DoriVLN.Services
             _foDB.addFolderToDB(newFolder);
         }
 
-        public void deleteFolder(Folder folder)
+        public void deleteFolder(int ID)
         {
-            var folderID = _foDB.getFolderID(folder);
-            _foDB.removeFolderFromDB(folderID); 
+           
+            _foDB.removeFolderFromDB(ID); 
         }
 
         public void setFolderName(string name, Folder folder)
