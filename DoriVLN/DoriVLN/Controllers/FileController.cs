@@ -43,6 +43,7 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.parentFolderID = _fiServ.getParentFolderIDByFolderName(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model.folderName);
                 model.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
                 EditorViewModel tempModel = new EditorViewModel();

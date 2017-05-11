@@ -117,5 +117,12 @@ namespace DoriVLN.Database
 
             return retList;
         }
+
+        public int getParentFolderIDByFolderName(int userID, string folderName)
+        {
+            var result = _db.Folders.SingleOrDefault(f => f.ownerID == userID && f.name == folderName);
+
+            return result.ID;
+        }
     }
 }

@@ -19,14 +19,15 @@ namespace DoriVLN.Models.ViewModels
         public DateTime dateTime { get; set; }
         public string content { get; set; }
         public string folderName { get; set; }
+        public int parentFolderID { get; set; }
 
         public List<SelectListItem> folderList { get; set; }
 
     }
-
     public class ShareFileViewModel
     {
         public string shareLink { get; set; }
         public string sendEmailRequest { get; set; } 
     }
+
 }

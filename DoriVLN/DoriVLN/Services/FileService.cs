@@ -46,6 +46,7 @@ namespace DoriVLN.Services
             file.ownerID = ownerID;
             file.name = model.name;
             file.dateTime = date.ToString();
+            file.parentFolderID = model.parentFolderID;
 
             _fiDB.addFileToDB(file);
         }
@@ -104,6 +105,11 @@ namespace DoriVLN.Services
         public List<string> getFolderNamesOfUser(int userID)
         {
             return _fiDB.getFolderNamesOfUser(userID);
+        }
+
+        public int getParentFolderIDByFolderName(int userID, string folderName)
+        {
+            return _fiDB.getParentFolderIDByFolderName(userID, folderName);
         }
     }
 }
