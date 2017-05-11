@@ -91,7 +91,6 @@ namespace DoriVLN.Controllers
 
         public ActionResult Delete(FileViewModel model)
         {
-            //TODO: implement
             return View(model);
         }
 
