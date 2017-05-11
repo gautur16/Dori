@@ -10,7 +10,10 @@
 <div class="row">
     <section>
         <div class="col-md-4">
-            <h2>Folders</h2>
+            <div class="row">
+                <h2>Folders <span style="font-size: 12pt">@Html.ActionLink("Create Folder", "NewFolder", "Folder")</span></h2>
+                
+            </div>
                 <div class="table-responsive">
                     <table class="table-striped" style="width:100%">
                         <thead>
@@ -23,13 +26,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    @Html.ActionLink("Create Folder", "NewFolder", "Folder")
-                                </td>
-                                <td>
-                                </td>
-                            </tr>
                             @foreach (var item in Model)
                             {
                                 <tr>
@@ -47,10 +43,10 @@
     </section>
     <section>
         <div class="col-md-8">
-            <h2>Files</h2>
+            <h2>Files <span style="font-size: 12pt">@Html.ActionLink("Create File", "NewFile", "File")</span></h2>
+            
             <div class="table-responsive" style="overflow:hidden">
                 @{Html.RenderAction("DisplayFiles", "File");}
-                @Html.ActionLink("Create File", "NewFile", "File")
             </div>
         </div>
     </section>
