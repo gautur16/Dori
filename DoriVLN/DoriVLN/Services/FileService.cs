@@ -60,7 +60,7 @@ namespace DoriVLN.Services
         {
             _fiDB.removeFileFromDB(fileID);
         }
-
+ 
         public void editFile(int userID, FileViewModel file)
         {
             File editedFile = new File();
@@ -68,6 +68,7 @@ namespace DoriVLN.Services
             editedFile.fileType = file.fileType;
             editedFile.content = file.content;
             editedFile.ownerID = userID;
+            editedFile.dateTime = DateTime.Now.ToString();
             _fiDB.editFileInDB(editedFile);
         }
 

@@ -101,6 +101,7 @@ namespace DoriVLN.Database
             var result = _db.Files.SingleOrDefault(f => f.ownerID == userID && f.name == name);
 
             result.content = model.Content;
+            result.dateTime = DateTime.Now.ToString();
             _db.SaveChanges();
 
         }
