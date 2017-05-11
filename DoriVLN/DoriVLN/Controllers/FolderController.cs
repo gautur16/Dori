@@ -19,23 +19,26 @@ namespace DoriVLN.Controllers
         {
             _foServ = new FolderService();
         }
-        
 
         public ActionResult Overview()
         {
             return View(_foServ.getFoldersByID(_foServ.getUserIDByEmail(User.Identity.GetUserName())));
         }
-        public ActionResult RemoveFolder()
+
+        [HttpPost]
+        public ActionResult DeleteFolder(FolderViewModel folder)
         {
-            //TODO: implement
-            return View();
+            int delID = _foServ.getFolderID(folder, _foServ.getUserIDByEmail(User.Identity.GetUserName()));
+            return View("Overview");
         }
+
         [HttpGet]
         public ActionResult NewFolder()
         {
             
             return View();
         }
+
         [HttpPost]
         public ActionResult NewFolder(FolderViewModel model)
         {
@@ -51,7 +54,6 @@ namespace DoriVLN.Controllers
             } 
             return View();
         }
-
 
         public ActionResult DisplayFolders()
         {

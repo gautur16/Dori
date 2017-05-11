@@ -30,7 +30,7 @@ namespace DoriVLN.Services
         public void deleteFolder(Folder folder)
         {
             var folderID = _foDB.getFolderID(folder);
-                
+            _foDB.removeFolderFromDB(folderID); 
         }
 
         public void setFolderName(string name, Folder folder)
@@ -63,6 +63,14 @@ namespace DoriVLN.Services
             return _foDB.getUserIDByEmail(email);
         }
 
+
+        public int getFolderID(FolderViewModel model, int userID)
+        {
+            Folder folder = new Folder();
+            folder.name = model.name;
+            folder.ownerID = userID;
+            return _foDB.getFolderID(folder);
+        }
 
     }
 }

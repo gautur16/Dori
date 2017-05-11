@@ -7,6 +7,8 @@ using DoriVLN.Models.ViewModels;
 using DoriVLN.Services;
 using Microsoft.AspNet.Identity;
 
+
+
 namespace DoriVLN.Controllers
 {
     public class FileController : Controller
@@ -30,19 +32,25 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
                 ModelState.Clear();
-                return View(new FileViewModel());
+                EditorViewModel tempModel = new EditorViewModel();
+                tempModel.fileName = model.name;
+                return RedirectToAction("TextEditor", tempModel);
             }
+
+
 
             return View();
         }
 
-        public ActionResult TextEditor()
+        public ActionResult TextEditor(EditorViewModel model)
         {
             ViewBag.Code = "//Hello there :) Welcome to your new file!";
             ViewBag.DocumentID = 17;
-            return View();
+
+            return View(model);
         }
 
         /*public ActionResult Chat()
@@ -53,7 +61,13 @@ namespace DoriVLN.Controllers
         [HttpPost]
         public ActionResult SaveCode(EditorViewModel model)
         {
-            return View("File");
+            if (ModelState.IsValid)
+            {
+                model.fileName = TempData["fileName"].ToString();
+                _fiServ.saveCode(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()) , model.fileName);
+            }
+
+            return RedirectToAction("Overview","Folder");
         }
 
 
@@ -72,6 +86,16 @@ namespace DoriVLN.Controllers
         public ActionResult Share()
         {
             //TODO: implement
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(FileViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _fiServ.editFile(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model);
+            }
             return View();
         }
     }

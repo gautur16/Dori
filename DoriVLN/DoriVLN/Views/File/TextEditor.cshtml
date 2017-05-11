@@ -6,6 +6,9 @@
 <div class="row">
     <div class="col-md-3">
         <p>Hérna gæti komið listi</p>
+        <p>Editing: @Model.fileName</p>
+@{ TempData["fileName"] = Model.fileName; }
+
     </div>
     <div class="col-md-9">
     <h2>TextEditor</h2>
@@ -14,13 +17,14 @@
         @ViewBag.Code
     </div>
 
-    @using (Html.BeginForm("Save Code", "File", FormMethod.Post))
+    @using (Html.BeginForm("SaveCode", "File", FormMethod.Post))
     {
         @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
         <input type="submit" value="Save Code"/>
     }
     </div>
 </div>
+
 
 @section scripts
 {
@@ -37,9 +41,11 @@
        
         $("form").submit(function () { // Tekur allt inni í text editor og geymir.
             $("#hidden_editor").val(editor.getSession().getValue());
-            });
+        });
 
-        var codeHub = $.connection.codeHub;
+       
+
+      /*  var codeHub = $.connection.codeHub;
         var silent = false;
 
         codeHub.client.OnChange = function (changeData) {
@@ -63,7 +69,7 @@
             });
         });
 
-       /* var timeoutId;
+        var timeoutId;
         $("#hidden_editor").on('input propertychange change', function() {
             console.log('Textarea Change');
 
@@ -101,5 +107,7 @@
                 saveText();
             }
         });*/
-    </script>    
+    </script>   
+    
+     
 }

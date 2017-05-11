@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using DoriVLN.Models.ViewModels;
 
 namespace DoriVLN.Database
 {
@@ -42,12 +43,13 @@ namespace DoriVLN.Database
             _db.SaveChanges();
         }
 
-        public void  editFileInDB(int fileID, File newfile)
+        public void  editFileInDB(File newfile)
         {
-            var file = _db.Files.SingleOrDefault(f => f.ID == fileID);
+            var file = _db.Files.SingleOrDefault(f => f.ownerID == newfile.ownerID && f.name == newfile.name);
 
             file.name = newfile.name;
             file.fileType = newfile.fileType;
+            file.content = newfile.content;
             _db.SaveChanges();
 
         }
@@ -92,6 +94,15 @@ namespace DoriVLN.Database
             var result = _db.Users.SingleOrDefault(u => u.email == email);
 
             return result.ID;
+        }
+
+        public void saveCode(int userID, string name, EditorViewModel model)
+        {
+            var result = _db.Files.SingleOrDefault(f => f.ownerID == userID && f.name == name);
+
+            result.content = model.Content;
+            _db.SaveChanges();
+
         }
     }
 }
