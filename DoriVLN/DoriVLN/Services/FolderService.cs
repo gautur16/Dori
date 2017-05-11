@@ -48,7 +48,7 @@ namespace DoriVLN.Services
            
         }
 
-        public List<Folder> getFoldersByID(int ID)
+        public List<FolderViewModel> getFoldersByID(int ID)
         {
             return _foDB.getFoldersFromDBByUserID(ID);
         }

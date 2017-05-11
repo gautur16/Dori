@@ -5,6 +5,14 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
+#fileRow > td {
+    background-color: #edf8ff;
+}
+
+tr > td {
+    vertical-align: middle!important;
+}
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;

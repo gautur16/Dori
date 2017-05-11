@@ -242,6 +242,10 @@
     <Compile Include="Migrations\201705111606050_share.Designer.cs">
       <DependentUpon>201705111606050_share.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705111943490_ffodlers.cs" />
+    <Compile Include="Migrations\201705111943490_ffodlers.Designer.cs">
+      <DependentUpon>201705111943490_ffodlers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Entity\File.cs" />
@@ -363,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705111606050_share.resx">
       <DependentUpon>201705111606050_share.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111943490_ffodlers.resx">
+      <DependentUpon>201705111943490_ffodlers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

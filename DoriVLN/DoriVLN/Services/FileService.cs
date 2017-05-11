@@ -45,7 +45,7 @@ namespace DoriVLN.Services
             file.fileType = model.fileType;
             file.ownerID = ownerID;
             file.name = model.name;
-            file.dateTime = date.ToString();
+            file.dateTime = date;
             file.parentFolderID = model.parentFolderID;
 
             _fiDB.addFileToDB(file);
@@ -68,7 +68,7 @@ namespace DoriVLN.Services
             editedFile.fileType = file.fileType;
             editedFile.content = file.content;
             editedFile.ownerID = userID;
-            editedFile.dateTime = DateTime.Now.ToString();
+            editedFile.dateTime = DateTime.Now;
             _fiDB.editFileInDB(editedFile);
         }
 
