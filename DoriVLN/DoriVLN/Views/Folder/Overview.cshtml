@@ -39,8 +39,7 @@
                                         @Html.ActionLink(item.name, "Overview", "Folder")
                                     </td>
                                     <td>
-                                        @Html.ActionLink("Delete", "Overview", "DeleteFolder")
-                                    </td>
+                                        @Html.ActionLink("Delete", "DeleteFolder", new { folder = item })                                    </td>
                                 </tr>
                             }
                         </tbody>
