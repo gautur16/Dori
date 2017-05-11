@@ -23,6 +23,7 @@
                 <th>Last Modified</th>
                 <th> </th>
                 <th> </th>
+                <th> </th>
             </tr>
         </thead>
         <tbody>
@@ -62,6 +63,7 @@
                     <td>@item.dateTime</td>
                     <td>@Html.ActionLink("Edit", "TextEditor", new { @Content = item.content, @fileName = item.name,@fileType = item.fileType })</td>
                     <td>@Html.ActionLink("Share", "Share", new { @fileToShare = item.name })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new { @name = item.name, @ownerID = item.ownerID, @fileType = item.fileType })</td>
                 </tr>
             }
         </tbody>

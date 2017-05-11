@@ -89,10 +89,18 @@ namespace DoriVLN.Controllers
             return View(result);
         }
 
-        public ActionResult RemoveFile()
+        public ActionResult Delete(FileViewModel model)
         {
             //TODO: implement
-            return View();
+            return View(model);
+        }
+
+        [HttpPost,ActionName("Delete")]
+        public ActionResult DeleteConfirmed(FileViewModel model)
+        {
+            int ID = _fiServ.getFileID(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
+            _fiServ.deleteFile(ID);
+            return RedirectToAction("Overview", "Folder");
         }
 
         public ActionResult Share(ShareFileViewModel model)
