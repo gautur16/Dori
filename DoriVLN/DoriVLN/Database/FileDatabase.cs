@@ -8,14 +8,14 @@ using DoriVLN.Models.ViewModels;
 
 namespace DoriVLN.Database
 {
-    public class FileDatabase: BaseDatabase
+    public class FileDatabase : BaseDatabase
     {
         public void addFileToDB(File file)
         {
             _db.Files.Add(file);
             _db.SaveChanges();
         }
-        
+
         public File getFileFromDB(int fileID)
         {
             var retFile = _db.Files.SingleOrDefault(f => f.ID == fileID);
@@ -33,7 +33,7 @@ namespace DoriVLN.Database
         public void removeFileFromDB(int fileID)
         {
             var file = _db.Files.SingleOrDefault(f => f.ID == fileID);
-            if(file == null)
+            if (file == null)
             {
                 //TODO: Throw Null Exception
             }
@@ -43,7 +43,7 @@ namespace DoriVLN.Database
             _db.SaveChanges();
         }
 
-        public void  editFileInDB(File newfile)
+        public void editFileInDB(File newfile)
         {
             var file = _db.Files.SingleOrDefault(f => f.ownerID == newfile.ownerID && f.name == newfile.name);
 
@@ -57,7 +57,7 @@ namespace DoriVLN.Database
         public bool fileExists(File file)
         {
             var retFile = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType && file.ownerID == f.ownerID);
-            if(retFile != null)
+            if (retFile != null)
             {
                 return true;
             }
@@ -67,19 +67,19 @@ namespace DoriVLN.Database
 
         public int getFileID(File file)
         {
-            
+
             var retFile = _db.Files.SingleOrDefault(f => f.name == file.name && file.ownerID == f.ownerID);
-            
-            
-                return retFile.ID;
-            
+
+
+            return retFile.ID;
+
         }
 
         public int getFileOwnerID(File file)
         {
             var retVal = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType);
             return retVal.ownerID;
-        } 
+        }
 
 
         public string getUsername(int ID)
@@ -110,7 +110,7 @@ namespace DoriVLN.Database
             List<string> retList = new List<string>();
             var result = _db.Folders.Where(f => f.ownerID == userID).ToList();
 
-            foreach(var item in result)
+            foreach (var item in result)
             {
                 retList.Add(item.name);
             }
@@ -131,6 +131,12 @@ namespace DoriVLN.Database
             result.shareID = userID;
             _db.SaveChanges();
 
+        }
+
+        public int getFolderID(string name, int userID)
+        {
+            var retVal = _db.Folders.SingleOrDefault(f => f.name == name && f.ownerID == userID);
+            return retVal.ID;
         }
     }
 }

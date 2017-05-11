@@ -115,5 +115,10 @@ namespace DoriVLN.Services
         {
             _fiDB.addShareRelation(fileID, userID);
         }
+
+        public int getFolderID(string name, int userID)
+        {
+            return _fiDB.getFolderID(name, userID);
+        }
     }
 }
