@@ -47,6 +47,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.fileType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.folderName, (List<SelectListItem>)ViewBag.selectList)
+                @Html.ValidationMessageFor(model => model.folderName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
                 <a href="~/Folder/Overview" class="btn btn-default">Cancel</a>
