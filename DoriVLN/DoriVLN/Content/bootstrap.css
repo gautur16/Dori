@@ -4,6 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -12,6 +13,7 @@ html {
 body {
   margin: 0;
 }
+
 article,
 aside,
 details,
@@ -4959,8 +4961,9 @@ a.badge:focus {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  color: inherit;
-  background-color: #eee;
+  margin-left: -80px;
+  margin-right:-80px;
+  background-color: #6dc6ff!important;
 }
 .jumbotron h1,
 .jumbotron .h1 {
@@ -4978,15 +4981,15 @@ a.badge:focus {
 .container-fluid .jumbotron {
   padding-right: 15px;
   padding-left: 15px;
-  border-radius: 6px;
+  border-radius: 0px!important;
 }
 .jumbotron .container {
   max-width: 100%;
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 30px!important;
+    padding-bottom: 30px!important;
   }
   .container .jumbotron,
   .container-fluid .jumbotron {
@@ -4995,6 +4998,7 @@ a.badge:focus {
   }
   .jumbotron h1,
   .jumbotron .h1 {
+    color: white!important;
     font-size: 63px;
   }
 }

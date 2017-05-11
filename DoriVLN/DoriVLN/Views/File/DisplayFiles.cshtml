@@ -5,8 +5,8 @@
 
 <style>
     table.FileTable, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
+      /*border: 1px solid black;
+        border-collapse: collapse;*/
     }
 
     th, td {
@@ -17,23 +17,24 @@
         text-align: left;
     }
 </style>
-
-<table class="FileTable" style="width:100%">
-    <tr>
-        <th>File Name</th>
-        <th>FileType</th>
-        <th>Last Modified</th>
-    </tr>
-    @foreach (var item in Model)
-    {
+<div class="table-responsive">
+    <table class="table-striped" style="width:100%">
         <tr>
-            <td>@item.name</td>
-            <td>@item.fileType</td>
-            <td>@item.dateTime</td>
+            <th>File Name</th>
+            <th>FileType</th>
+            <th>Last Modified</th>
         </tr>
-    }
-        </table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.name</td>
+                <td>@item.fileType</td>
+                <td>@item.dateTime</td>
+            </tr>
+        }
+    </table>
+</div>
 
-    @{Html.RenderAction("NewFile", "File");}
+ @{Html.RenderAction("NewFile", "File");}
 
 
