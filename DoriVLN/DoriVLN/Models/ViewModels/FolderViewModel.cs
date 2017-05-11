@@ -10,7 +10,9 @@ namespace DoriVLN.Models.ViewModels
     {
         [Display(Name = "Folder Name")]
         public string name { get; set; }
-        public string owner { get; set; }
+        public int ownerID { get; set; }
+        public int ID { get; set;  }
+        public List<FileViewModel> fileList { get; set; }
 
 
     }

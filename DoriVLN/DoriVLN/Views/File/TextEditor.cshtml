@@ -4,14 +4,14 @@
     ViewBag.Title = "TextEditor";
 }
 <div class="row">
-    <div class="col-md-3">
-        <p>Hérna gæti komið listi</p>
+    <div class="col-md-1">
+        @*<p>Hérna gæti komið listi</p>
         <p>Editing: @Model.fileName</p>
-@{ TempData["fileName"] = Model.fileName; }
+@{ TempData["fileName"] = Model.fileName; }*@
 
     </div>
-    <div class="col-md-9">
-    <h2>TextEditor</h2>
+    <div class="col-md-11">
+    <h2>@Model.fileName</h2>
 
     <div id="editor">
         @ViewBag.Code
@@ -36,7 +36,6 @@
         var documentID = @ViewBag.DocumentID;
 
         var editor = ace.edit("editor");
-        //var newMode = "HTML";
         editor.setTheme("ace/theme/dawn");
        
         editor.getSession().setMode("ace/mode/@Model.fileType");

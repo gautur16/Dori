@@ -1,4 +1,5 @@
 ﻿using DoriVLN.Models.Entity;
+using DoriVLN.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,10 +33,37 @@ namespace DoriVLN.Database
                 _db.SaveChanges();
             }
         }
-        public List<Folder> getFoldersFromDBByUserID(int userID)
+        public List<FolderViewModel> getFoldersFromDBByUserID(int userID)
         {
             var result = _db.Folders.Where(f => f.ownerID == userID).ToList();
-            return result;
+            List<FolderViewModel> temp = new List<FolderViewModel>();
+            var files = _db.Files.Where(f => f.ownerID == userID);
+            foreach (var item in result)
+            {
+                List<FileViewModel> tempList = new List<FileViewModel>();
+                foreach (var file in files)
+                {
+                    if (file.parentFolderID == item.ID)
+                    {
+                        tempList.Add(new FileViewModel
+                        {
+                            name = file.name,
+                            ownerID = file.ownerID,
+                            fileType = file.fileType,
+                            dateTime = file.dateTime,
+                            content = file.content,
+                            parentFolderID = file.parentFolderID
+                        });
+                    }
+                }
+                    temp.Add(new FolderViewModel
+                    {
+                        name = item.name,
+                        ID = item.ID,
+                        fileList = tempList
+                    });
+            }
+                return temp;
         }
 
         public Folder getFolderFromDB(int folderID)

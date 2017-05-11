@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DoriVLN.Models.Entity.Folder>
+﻿@model IEnumerable<DoriVLN.Models.ViewModels.FolderViewModel>
 @{
     ViewBag.Title = "Index";
 }
@@ -7,50 +7,57 @@
         <h1>Dóri V2</h1>
     </div>
 </div>
-<div class="row">
-    <section>
-        <div class="col-md-4">
-            <div class="row">
-                <h2>Folders <span style="font-size: 12pt" class="btn btn-default">@Html.ActionLink("Create Folder", "NewFolder", "Folder")</span></h2>
-                
-            </div>
-                <div class="table-responsive">
-                    <table class="table-striped" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Folder name
-                                </th>
-                                <th>
-                                </th>
+
+<div class="col-md-12>
+    <div class="row">
+        <h2>Overview <span style="font-size: 12pt" class="btn btn-default">
+        @Html.ActionLink("Create Folder", "NewFolder", "Folder")</span>
+        <span style="font-size: 12pt" class="btn btn-default">
+         @Html.ActionLink("Create File", "NewFile", "File")</span></h2>
+    </div>
+    <div class="table-responsive">
+        <table class="table" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Folder Name</th>
+                    <th>File Name</th>
+                    <th>File Type</th>
+                    <th>Last Modified</th>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{foreach (var item in Model)
+                    {
+                    <tr>
+                        <td style="font-weight: bold">@item.name</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                        foreach (var file in item.fileList)
+                        {
+                            <tr id ="fileRow">
+                                <td align="center">&rarr;</td>
+                                <td>@file.name</td>
+                                <td>@file.fileType</td>
+                                <td>@file.dateTime</td>
+                                <td><span style="font-size: 12pt" class="btn btn-default"> @Html.ActionLink("Edit", "TextEditor", "File", new { @Content = file.content, @fileName = file.name }, null)</span></td>
+                                <td><span style="font-size: 12pt" class="btn btn-default"> @Html.ActionLink("Share", "Share", "File", new { @fileToShare = file.name }, null)</span></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.ActionLink(item.name, "Overview", "Folder")
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Delete", "DeleteFolder", new { folder = item })                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-        </div>
-    </section>
-    <section>
-        <div class="col-md-8">
-            <h2>Files <span style="font-size: 12pt" class="btn btn-default">@Html.ActionLink("Create File", "NewFile", "File")</span></h2>
-            
-            <div class="table-responsive" style="overflow:hidden">
-                @{Html.RenderAction("DisplayFiles", "File");}
-            </div>
-        </div>
-    </section>
-</div>
+                        }
+                        }
+                    }
+            </tbody>
+        </table>
+    </div>
+
+    
+
+</div>
 
 
 
