@@ -28,11 +28,39 @@
         <tbody>
             @foreach (var item in Model)
             {
+                if (item.fileType == "javascript")
+                {
+                    item.fileType = "Javascript";
+                }
+                else if (item.fileType == "c_cpp")
+                {
+                    item.fileType = "C++";
+                }
+                else if (item.fileType == "csharp")
+                {
+                    item.fileType = "C#";
+                }
+                else if (item.fileType == "java")
+                {
+                    item.fileType = "Java";
+                }
+                else if (item.fileType == "python")
+                {
+                    item.fileType = "Python";
+                }
+                else if (item.fileType == "ruby")
+                {
+                    item.fileType = "Ruby";
+                }
+                else if (item.fileType == "php")
+                {
+                    item.fileType = "PHP";
+                }
                 <tr>
                     <td>@item.name</td>
                     <td>@item.fileType</td>
                     <td>@item.dateTime</td>
-                    <td>@Html.ActionLink("Edit", "TextEditor", new { @Content = item.content, @fileName = item.name })</td>
+                    <td>@Html.ActionLink("Edit", "TextEditor", new { @Content = item.content, @fileName = item.name,@fileType = item.fileType })</td>
                     <td>@Html.ActionLink("Share", "Share", new { @fileToShare = item.name })</td>
                 </tr>
             }

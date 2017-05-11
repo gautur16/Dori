@@ -4,14 +4,14 @@
     ViewBag.Title = "TextEditor";
 }
 <div class="row">
-    <div class="col-md-3">
-        <p>Hérna gæti komið listi</p>
+    <div class="col-md-1">
+        @*<p>Hérna gæti komið listi</p>
         <p>Editing: @Model.fileName</p>
-@{ TempData["fileName"] = Model.fileName; }
+@{ TempData["fileName"] = Model.fileName; }*@
 
     </div>
-    <div class="col-md-9">
-    <h2>TextEditor</h2>
+    <div class="col-md-11">
+    <h2>@Model.fileName</h2>
 
     <div id="editor">
         @ViewBag.Code
@@ -37,7 +37,8 @@
 
         var editor = ace.edit("editor");
         editor.setTheme("ace/theme/dawn");
-        editor.getSession().setMode("ace/mode/javascript");
+       
+        editor.getSession().setMode("ace/mode/@Model.fileType");
        
         $("form").submit(function () { // Tekur allt inni í text editor og geymir.
             $("#hidden_editor").val(editor.getSession().getValue());

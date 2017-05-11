@@ -48,6 +48,7 @@ namespace DoriVLN.Controllers
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
                 EditorViewModel tempModel = new EditorViewModel();
                 tempModel.fileName = model.name;
+                tempModel.fileType = model.fileType;
                 return RedirectToAction("TextEditor", tempModel);
             }
 

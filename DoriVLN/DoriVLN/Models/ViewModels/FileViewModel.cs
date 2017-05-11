@@ -28,7 +28,7 @@ namespace DoriVLN.Models.ViewModels
     {
         public string fileToShare { get; set; }
         [EmailAddress(ErrorMessage = "This is not a valid email address.")]
-        [Display(Name = "Enter the email of user to share with")]
+        [Display(Name = "Email")]
         [Required(ErrorMessage = "Please enter the email address of the user to share with.")]
         public string email { get; set; } 
     }
