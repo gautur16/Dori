@@ -68,7 +68,7 @@ namespace DoriVLN.Database
         public int getFileID(File file)
         {
             
-            var retFile = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType && file.ownerID == f.ownerID);
+            var retFile = _db.Files.SingleOrDefault(f => f.name == file.name && file.ownerID == f.ownerID);
             
             
                 return retFile.ID;
@@ -79,7 +79,7 @@ namespace DoriVLN.Database
         {
             var retVal = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType);
             return retVal.ownerID;
-        }
+        } 
 
 
         public string getUsername(int ID)
@@ -123,6 +123,14 @@ namespace DoriVLN.Database
             var result = _db.Folders.SingleOrDefault(f => f.ownerID == userID && f.name == folderName);
 
             return result.ID;
+        }
+
+        public void addShareRelation(int fileID, int userID)
+        {
+            var result = _db.Files.SingleOrDefault(f => f.ID == fileID);
+            result.shareID = userID;
+            _db.SaveChanges();
+
         }
     }
 }

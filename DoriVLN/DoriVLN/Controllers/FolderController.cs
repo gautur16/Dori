@@ -25,20 +25,20 @@ namespace DoriVLN.Controllers
             return View(_foServ.getFoldersByID(_foServ.getUserIDByEmail(User.Identity.GetUserName())));
         }
 
-      /*  [HttpPost]
+        [HttpPost]
         public RedirectToRouteResult DeleteFolder(FolderViewModel folder)
         {
             int delID = _foServ.getFolderID(folder, _foServ.getUserIDByEmail(User.Identity.GetUserName()));
             return RedirectToAction("Overview", "Folder");
-        } */
-        [HttpPost]
+        } 
+       /* [HttpPost]
         [AcceptVerbs(HttpVerbs.Delete)]
         public ContentResult DeleteFolder(FolderViewModel folder)
         {
             int delID = _foServ.getFolderID(folder, _foServ.getUserIDByEmail(User.Identity.GetUserName()));
             _foServ.deleteFolder(delID);
             return null;
-        }
+        } */
 
         [HttpGet]
         public ActionResult NewFolder()

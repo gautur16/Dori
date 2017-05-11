@@ -14,5 +14,6 @@ namespace DoriVLN.Models.Entity
         public string content { get; set; }
         public string dateTime { get; set; }
         public int parentFolderID { get; set;}
+        public int shareID { get; set; }
     }
 }

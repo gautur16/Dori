@@ -20,6 +20,8 @@
             <th>File Name</th>
             <th>FileType</th>
             <th>Last Modified</th>
+            <th> </th>
+            <th> </th>
         </tr>
         @foreach (var item in Model)
         {
@@ -27,6 +29,9 @@
                 <td>@item.name</td>
                 <td>@item.fileType</td>
                 <td>@item.dateTime</td>
+                <td>@Html.ActionLink("Edit", "TextEditor", new { @Content = item.content, @fileName = item.name })</td>
+                <td>@Html.ActionLink("Share", "Share", new {@fileToShare = item.name})</td>
+
             </tr>
         }
     </table>

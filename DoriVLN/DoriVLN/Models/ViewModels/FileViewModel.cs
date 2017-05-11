@@ -18,16 +18,19 @@ namespace DoriVLN.Models.ViewModels
         public string fileType { get; set; }
         public DateTime dateTime { get; set; }
         public string content { get; set; }
+        [Display(Name = "Choose a folder for the file")]
+        [Required]
         public string folderName { get; set; }
         public int parentFolderID { get; set; }
-
-        public List<SelectListItem> folderList { get; set; }
 
     }
     public class ShareFileViewModel
     {
-        public string shareLink { get; set; }
-        public string sendEmailRequest { get; set; } 
+        public string fileToShare { get; set; }
+        [EmailAddress(ErrorMessage = "This is not a valid email address.")]
+        [Display(Name = "Enter the email of user to share with")]
+        [Required(ErrorMessage = "Please enter the email address of the user to share with.")]
+        public string email { get; set; } 
     }
 
 }

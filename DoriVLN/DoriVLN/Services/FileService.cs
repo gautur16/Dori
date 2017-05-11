@@ -82,12 +82,11 @@ namespace DoriVLN.Services
             return file;
         }
 
-        public int getFileID(FileViewModel model)
+        public int getFileID(FileViewModel model, int userID)
         {
             File file = new File();
             file.name = model.name;
-            file.fileType = model.fileType;
-            file.ownerID = _fiDB.getFileOwnerID(file);
+            file.ownerID = userID;
             return _fiDB.getFileID(file);
         }
 
@@ -110,6 +109,11 @@ namespace DoriVLN.Services
         public int getParentFolderIDByFolderName(int userID, string folderName)
         {
             return _fiDB.getParentFolderIDByFolderName(userID, folderName);
+        }
+
+        public void addShareRelation(int fileID, int userID)
+        {
+            _fiDB.addShareRelation(fileID, userID);
         }
     }
 }
