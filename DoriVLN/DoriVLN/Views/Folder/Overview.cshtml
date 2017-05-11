@@ -1,69 +1,61 @@
-﻿@model IEnumerable<DoriVLN.Models.Entity.Folder>
+﻿@model IEnumerable<DoriVLN.Models.Entity.Folder>
 @{
     ViewBag.Title = "Index";
-}
-
+}
 <div class="jumbotron">
-    <h1>Dóri V2</h1>
-    <form>
-        <input type="text" placeholder="Dummy leitarvél..."/>
-        <input type="submit" value="Search"/>
-    </form>
-    <!--
-       <p class="lead">
-        Hér kæmi leitarvél (ef tími vinnst til).
-        </p> 
-    -->
-    
-</div>
-
+    <div class="container">
+        <h1>Dóri V2</h1>
+        <form>
+            <input type="text" placeholder="Dummy leitarvél..." />
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+</div>
 <div class="row">
-    <div class="col-md-4">
-        <h2>Folders</h2>
-        <p>
-            <div class="table-responsive">
-                <table class="table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>
-                            Folder name
-                        </th>
-                    </tr>
-                </thead>    
-                    <tbody>
-                        <tr>
-                            <td>
-                                @Html.ActionLink("Create Folder", "NewFolder", "Folder")
-                            </td>
-                        </tr>
-                        @foreach (var item in Model)
-                        {
+    <section>
+        <div class="col-md-4">
+            <h2>Folders</h2>
+            <p>
+                <div class="table-responsive">
+                    <table class="table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Folder name
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td>
-                                    @Html.ActionLink(item.name, "Overview", "Folder")
+                                    @Html.ActionLink("Create Folder", "NewFolder", "Folder")
                                 </td>
                             </tr>
-                        }
-                   </tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.ActionLink(item.name, "Overview", "Folder")
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
-    <input type="submit" style="float: right" value="Delete Selected"/>
-</p>
-    </div>
-    <div class="col-md-8">
-        <h2>Files</h2>
-            <div class="table-responsive">
-                @{Html.RenderAction("DisplayFiles", "File");}    
-                @Html.ActionLink("Create File","NewFile", "File")
+                <input type="submit" style="float: right" value="Delete Selected" />
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="col-md-8">
+            <h2>Files</h2>
+            <div class="table-responsive" style="overflow:hidden">
+                @{Html.RenderAction("DisplayFiles", "File");}
+                @Html.ActionLink("Create File", "NewFile", "File")
             </div>
-
-        <!--
-        <p>
-            Hér er text editor prototype
-            <a href="/File/TextEditor">Text Editor</a>
-        </p>
-        -->
-       
-    </div>
-</div>
-
+        </div>
+    </section>
+</div>
+
+
+
