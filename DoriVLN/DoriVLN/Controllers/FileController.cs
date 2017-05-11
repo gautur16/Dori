@@ -58,7 +58,7 @@ namespace DoriVLN.Controllers
 
         public ActionResult TextEditor(EditorViewModel model)
         {
-            ViewBag.Code = "//Hello there :) Welcome to your new file!";
+            ViewBag.Code = model.Content;
             ViewBag.DocumentID = 17;
 
             return View(model);
@@ -94,9 +94,18 @@ namespace DoriVLN.Controllers
             return View();
         }
 
-        public ActionResult Share()
+        public ActionResult Share(ShareFileViewModel model)
         {
-            //TODO: implement
+            if (ModelState.IsValid)
+            {
+                FileViewModel temp = new FileViewModel();
+                temp.name = model.fileToShare;
+                temp.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());
+
+                _fiServ.addShareRelation(_fiServ.getFileID(temp, _fiServ.getUserIDByEmail(User.Identity.GetUserName())), _fiServ.getUserIDByEmail(model.email));
+
+                return RedirectToAction("Overview", "Folder");
+            }
             return View();
         }
 
