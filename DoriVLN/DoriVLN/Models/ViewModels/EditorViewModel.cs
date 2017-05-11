@@ -9,5 +9,6 @@ namespace DoriVLN.Models.ViewModels
     {
         public string Content { get; set; }
         public string fileName { get; set; }
+        public string fileType { get; set; }
     }
 }
