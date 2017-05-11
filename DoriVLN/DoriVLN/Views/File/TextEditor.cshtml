@@ -36,7 +36,6 @@
         var documentID = @ViewBag.DocumentID;
 
         var editor = ace.edit("editor");
-        //var newMode = "HTML";
         editor.setTheme("ace/theme/dawn");
        
         editor.getSession().setMode("ace/mode/@Model.fileType");
