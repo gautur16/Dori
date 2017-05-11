@@ -14,12 +14,12 @@ namespace DoriVLN.Models.ViewModels
         public string name { get; set; }
         public int ownerID { get; set; }
         [Display(Name = "File type")]
-        [Required]
+        [Required(ErrorMessage = "Please choose a file type.")]
         public string fileType { get; set; }
         public DateTime dateTime { get; set; }
         public string content { get; set; }
-        [Display(Name = "Choose a folder for the file")]
-        [Required]
+        [Display(Name = "Choose folder")]
+        [Required(ErrorMessage ="Please enter a file name")]
         public string folderName { get; set; }
         public int parentFolderID { get; set; }
 

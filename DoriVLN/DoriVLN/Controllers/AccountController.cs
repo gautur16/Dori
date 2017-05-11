@@ -91,7 +91,7 @@ namespace DoriVLN.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    return RedirectToAction("Overview", "Folder");
             }
         }
 
