@@ -23,8 +23,19 @@ namespace DoriVLN.Controllers
         [HttpGet]
         public ActionResult NewFile()
         {
-            ModelState.Clear();
-            return View(new FileViewModel());
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            List<string> values = _fiServ.getFolderNamesOfUser(_fiServ.getUserIDByEmail(User.Identity.GetUserName()));
+            foreach(var item in values)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Text = item,
+                    Value = item
+                });
+            }
+           
+            ViewBag.selectList = selectList;
+            return View();
         }
 
         [HttpPost]
@@ -34,7 +45,6 @@ namespace DoriVLN.Controllers
             {
                 model.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
-                ModelState.Clear();
                 EditorViewModel tempModel = new EditorViewModel();
                 tempModel.fileName = model.name;
                 return RedirectToAction("TextEditor", tempModel);

@@ -104,5 +104,18 @@ namespace DoriVLN.Database
             _db.SaveChanges();
 
         }
+
+        public List<string> getFolderNamesOfUser(int userID)
+        {
+            List<string> retList = new List<string>();
+            var result = _db.Folders.Where(f => f.ownerID == userID).ToList();
+
+            foreach(var item in result)
+            {
+                retList.Add(item.name);
+            }
+
+            return retList;
+        }
     }
 }

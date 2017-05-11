@@ -11,5 +11,7 @@ namespace DoriVLN.Models.ViewModels
         [Display(Name = "Folder Name")]
         public string name { get; set; }
         public string owner { get; set; }
+
+
     }
 }

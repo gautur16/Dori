@@ -100,5 +100,10 @@ namespace DoriVLN.Services
         {
             _fiDB.saveCode(userID, name, model);
         }
+
+        public List<string> getFolderNamesOfUser(int userID)
+        {
+            return _fiDB.getFolderNamesOfUser(userID);
+        }
     }
 }
