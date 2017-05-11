@@ -11,7 +11,7 @@
     <section>
         <div class="col-md-4">
             <div class="row">
-                <h2>Folders <span style="font-size: 12pt">@Html.ActionLink("Create Folder", "NewFolder", "Folder")</span></h2>
+                <h2>Folders <span style="font-size: 12pt" class="btn btn-default">@Html.ActionLink("Create Folder", "NewFolder", "Folder")</span></h2>
                 
             </div>
                 <div class="table-responsive">
@@ -43,7 +43,7 @@
     </section>
     <section>
         <div class="col-md-8">
-            <h2>Files <span style="font-size: 12pt">@Html.ActionLink("Create File", "NewFile", "File")</span></h2>
+            <h2>Files <span style="font-size: 12pt" class="btn btn-default">@Html.ActionLink("Create File", "NewFile", "File")</span></h2>
             
             <div class="table-responsive" style="overflow:hidden">
                 @{Html.RenderAction("DisplayFiles", "File");}
