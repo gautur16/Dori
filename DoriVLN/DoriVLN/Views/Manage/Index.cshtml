@@ -1,22 +1,20 @@
-﻿@model DoriVLN.Models.IndexViewModel
+﻿@using Microsoft.AspNet.Identity
+@using DoriVLN.Controllers
+@model DoriVLN.Models.IndexViewModel
 @{
-    ViewBag.Title = "Manage";
+    ViewBag.Title = "My profile";
 }
-
-<div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-        <div class="col-md-offset-2 col-md-10">
-            <h2>@ViewBag.Title.</h2>
-            <h4>Change your account settings</h4>
-        </div>
-        <hr />
-        <div class="col-md-offset-2 col-md-10">
-            <p>
-                @Html.ActionLink("Change your password", "ChangePassword")
-            </p>
-            <p class="text-success">@ViewBag.StatusMessage</p>
-        </div>
-    </div>
-    <div class="col-md-3"></div>
-</div>
+    <h3>@ViewBag.Title.</h3>
+    <hr />
+       
+    <p>
+        Username:
+    </p>
+    <p>
+        Email: @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage")
+    </p>
+    <p>
+        @Html.ActionLink("Change your password", "ChangePassword")
+    </p>
+    <p class="text-success">@ViewBag.StatusMessage</p>
+       
