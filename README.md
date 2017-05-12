@@ -77,7 +77,6 @@ A text editor where you can write your code. To save your work, you click on the
 
 #### Share File
 Enter the email of the user you want to share with. Then click on the "Share" button. If you wish to cancel, click on the "Cancel" button and you will be redirected to the overview page.
-
 ![share](https://cloud.githubusercontent.com/assets/24224545/26003280/c56d5ff4-3721-11e7-9422-2a3b08b98b35.JPG)
 
 
@@ -107,14 +106,14 @@ To run the program, you need to do the following:
 
 
 #### Layer Architecture
-*	UI
+* UI
 	* User interface.
 		* Window layout for the user.
 		* Handles user input and validation.
 *	Services
 	* Folder/File/User Services.
-	*	Models
-  * Folder/File/User Classes.
+	* Models
+		* Folder/File/User classes.
 		* Folder/File/User helper Classes.
 *	Repositories
 	* Folder/File/User Repositories.
