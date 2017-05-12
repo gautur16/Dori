@@ -41,6 +41,34 @@
                     </tr>
                         foreach (var file in item.fileList)
                         {
+                            if (file.fileType == "javascript")
+                            {
+                                file.fileType = "Javascript";
+                            }
+                            else if (file.fileType == "c_cpp")
+                            {
+                                file.fileType = "C++";
+                            }
+                            else if (file.fileType == "csharp")
+                            {
+                                file.fileType = "C#";
+                            }
+                            else if (file.fileType == "java")
+                            {
+                                file.fileType = "Java";
+                            }
+                            else if (file.fileType == "python")
+                            {
+                                file.fileType = "Python";
+                            }
+                            else if (file.fileType == "ruby")
+                            {
+                                file.fileType = "Ruby";
+                            }
+                            else if (file.fileType == "php")
+                            {
+                                file.fileType = "PHP";
+                            }
                             <tr id ="fileRow">
                                 <td align="center">&rarr;</td>
                                 <td>@file.name</td>

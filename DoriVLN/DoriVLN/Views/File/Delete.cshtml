@@ -3,38 +3,73 @@
 @{
     ViewBag.Title = "Delete";
 }
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
 
-<h2>Delete</h2>
+        <h3>Are you sure you want to delete this file?</h3>
+        <div>
+    
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.name)
+                </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>FileViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.fileType)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fileType)
-        </dt>
+                <dd>
+                    @if(Model.fileType == "c_cpp")
+                    {
+                        Model.fileType = "C++";
+                    }
+                    @if(Model.fileType == "javascript")
+                    {
+                        Model.fileType = "JavaScript";
+                    }
+                    @if (Model.fileType == "csharp")
+                    {
+                        Model.fileType = "C#";
+                    }
+                    @if (Model.fileType == "java")
+                    {
+                        Model.fileType = "Java";
+                    }
+                    @if (Model.fileType == "python")
+                    {
+                        Model.fileType = "Python";
+                    }
+                    @if (Model.fileType == "ruby")
+                    {
+                        Model.fileType = "Ruby";
+                    }
+                    @if (Model.fileType == "php")
+                    {
+                        Model.fileType = "PHP";
+                    }
 
-        <dd>
-            @Html.DisplayFor(model => model.fileType)
-        </dd>
+                    @Html.DisplayFor(model => model.fileType)
+                </dd>
 
-    </dl>
+            </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            @using (Html.BeginForm()) {
+                @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Overview")
-        </div>
-    }
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-default" /> 
+                        <a href="~/Folder/Overview" class="btn btn-default">Cancel</a>
+                    </div>
+                </div>
+            }
+    </div>
+    <div class="col-md-3"></div>
+    </div>
 </div>
