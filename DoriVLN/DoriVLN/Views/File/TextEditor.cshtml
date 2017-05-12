@@ -68,45 +68,6 @@
                 codeHub.server.onChange(obj, documentID);
             });
         });
-        /*
-        var timeoutId;
-        $("#hidden_editor").on('input propertychange change', function() {
-            console.log('Textarea Change');
-
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(function() {
-                // Runs 1 second (1000 ms) after the last change    
-                saveToDB();
-            }, 1000);
-        });
-
-        function saveToDB()
-        {
-            console.log('Saving to the db');    
-        }*/
-        /*
-        // Autosave
-        var timeoutId;
-        $('textarea').keypress(function () {
-            if (timeoutId) clearTimeout(timeoutId);
-            timeoutId = setTimeout(function () {
-                $.ajax({
-                    url: '/savecomment',
-                    data: { comment: $(this).val() }
-                });
-            }, 750);
-        });
-        var autoSave = function() {
-            saveText();
-            setTimeout(autoSave, 3000);
-        };
-        autoSave();
-        $("#editor").on("keydown", function (b) {
-            if (b.ctrlKey && 83 == b.which) {
-                b.preventDefault();
-                saveText();
-            }
-        });*/
     </script>   
     
      
