@@ -21,8 +21,6 @@ namespace DoriVLN.Controllers
         public ManageController()
         {
             _uServ = new UserService();
-           
-
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)

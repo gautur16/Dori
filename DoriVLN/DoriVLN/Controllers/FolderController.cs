@@ -31,19 +31,10 @@ namespace DoriVLN.Controllers
             int delID = _foServ.getFolderID(folder, _foServ.getUserIDByEmail(User.Identity.GetUserName()));
             return RedirectToAction("Overview", "Folder");
         } 
-       /* [HttpPost]
-        [AcceptVerbs(HttpVerbs.Delete)]
-        public ContentResult DeleteFolder(FolderViewModel folder)
-        {
-            int delID = _foServ.getFolderID(folder, _foServ.getUserIDByEmail(User.Identity.GetUserName()));
-            _foServ.deleteFolder(delID);
-            return null;
-        } */
 
         [HttpGet]
         public ActionResult NewFolder()
-        {
-            
+        {   
             return View();
         }
 
