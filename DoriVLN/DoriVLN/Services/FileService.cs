@@ -131,5 +131,10 @@ namespace DoriVLN.Services
         {
             return _fiDB.filesSharedWithMe(userID);
         }
+
+        public bool userExists(string email)
+        {
+            return _fiDB.userExists(email);
+        }
     }
 }

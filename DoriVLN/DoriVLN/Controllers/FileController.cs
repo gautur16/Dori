@@ -182,6 +182,11 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(_fiServ.userExists(model.email))
+                {
+                    ModelState.AddModelError("email", "No user exists with this email address");
+                    return View();
+                }
                 FileViewModel temp = new FileViewModel();
                 temp.name = model.fileToShare;
                 temp.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());

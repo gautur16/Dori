@@ -169,5 +169,15 @@ namespace DoriVLN.Database
             }
             return temp;
         }
+        public bool userExists(string email)
+        {
+            var result = _db.Users.SingleOrDefault(u => u.email == email);
+            if(result == null)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
