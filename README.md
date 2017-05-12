@@ -123,10 +123,10 @@ To run the program, you need to do the following:
 
 #### Coding standards and tools
 
-*	Allman braces indent style.
-*	Google C++ style guide in other regards.
-* Microsoft Visual Studio 2015
-*	Git and Github for version control and issue tracking.
+* Allman braces indent style.
+* Microsoft C# style guide in other regards.
+* Microsoft Visual Studio 2015, ASP.NET MVC 5 
+* Git and Github for version control and issue tracking.
 * Tested on macOS 10 and Windows 10.
 
 
