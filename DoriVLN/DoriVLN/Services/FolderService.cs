@@ -17,7 +17,6 @@ namespace DoriVLN.Services
             _foDB = new FolderDatabase();
         }
         
-
         public void createFolder(FolderViewModel folder, int ID)
         {
             Folder newFolder = new Folder();
@@ -29,7 +28,6 @@ namespace DoriVLN.Services
 
         public void deleteFolder(int ID)
         {
-           
             _foDB.removeFolderFromDB(ID); 
         }
 
@@ -41,10 +39,7 @@ namespace DoriVLN.Services
 
         public bool folderExists(string folderName, int userID)
         {
-           
-
-           return _foDB.folderExists(folderName, userID);
-           
+           return _foDB.folderExists(folderName, userID);  
         }
 
         public List<FolderViewModel> getFoldersByID(int ID)
@@ -62,7 +57,6 @@ namespace DoriVLN.Services
             return _foDB.getUserIDByEmail(email);
         }
 
-
         public int getFolderID(FolderViewModel model, int userID)
         {
             Folder folder = new Folder();
@@ -70,6 +64,5 @@ namespace DoriVLN.Services
             folder.ownerID = userID;
             return _foDB.getFolderID(folder);
         }
-
     }
 }

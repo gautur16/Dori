@@ -31,9 +31,7 @@ namespace DoriVLN.Services
             FileViewModel viewModel = new FileViewModel();
             viewModel.name = file.name;
             viewModel.fileType = file.fileType;
-           // viewModel.owner = _fiDB.getUsername()
-            //TODO: How does one display the file's data from the database???
-
+           
             return viewModel;
         }
 
@@ -95,7 +93,6 @@ namespace DoriVLN.Services
         {
             return _fiDB.getUserIDByEmail(email);
         }
-
 
         public void saveCode(EditorViewModel model, int userID, string name)
         {
