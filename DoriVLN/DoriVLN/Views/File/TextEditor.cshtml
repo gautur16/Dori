@@ -19,8 +19,11 @@
     @using (Html.BeginForm("SaveCode", "File", FormMethod.Post))
     {
         @Html.HiddenFor(m => m.Content, new { @id = "hidden_editor" })
-        <input type="submit" value="Save Code"/>
+        <input type="submit" value="Save Code" class="btn btn-default" style="font-size: 12pt" />
+        <a href="~/Folder/Overview" class="btn btn-default" style="font-size: 12pt">Back To Overview</a>
     }
+        
+        
     </div>
 </div>
 

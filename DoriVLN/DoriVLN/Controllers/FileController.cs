@@ -79,7 +79,7 @@ namespace DoriVLN.Controllers
         public ActionResult TextEditor(EditorViewModel model)
         {
             ViewBag.Code = model.Content;
-            ViewBag.DocumentID = model.fileID;
+            ViewBag.DocumentID = 17;
 
             return View(model);
         }
@@ -98,7 +98,7 @@ namespace DoriVLN.Controllers
                 _fiServ.saveCode(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()) , model.fileName);
             }
 
-            return RedirectToAction("Overview","Folder");
+            return RedirectToAction("TextEditor", model);
         }
 
 
