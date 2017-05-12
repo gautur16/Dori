@@ -9,61 +9,55 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ownerID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fileType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.folderName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.parentFolderID)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ownerID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fileType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.folderName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.parentFolderID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+<div class="table-responsive">
+    <table class="table" style="width: 100%">
+        <tr>
+            <th>File Name</th>
+            <th>File Type</th>
+            <th>Last Modified</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            if (item.fileType == "javascript")
+            {
+                item.fileType = "Javascript";
+            }
+            else if (item.fileType == "c_cpp")
+            {
+                item.fileType = "C++";
+            }
+            else if (item.fileType == "csharp")
+            {
+                item.fileType = "C#";
+            }
+            else if (item.fileType == "java")
+            {
+                item.fileType = "Java";
+            }
+            else if (item.fileType == "python")
+            {
+                item.fileType = "Python";
+            }
+            else if (item.fileType == "ruby")
+            {
+                item.fileType = "Ruby";
+            }
+            else if (item.fileType == "php")
+            {
+                item.fileType = "PHP";
+            }
+            <tr>
+                <td>@item.name</td>
+                <td>@item.fileType</td>
+                <td>@item.dateTime)</td>
 
-</table>
+                <td>
+                    <span style="font-size: 12pt" class="btn btn-default"> @Html.ActionLink("Edit", "TextEditor", "File", new { @Content = item.content, @fileName = item.name, @fileType = item.fileType }, null)</span>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
