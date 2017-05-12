@@ -43,6 +43,11 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
+               /* if (_fiServ.noFolder(_fiServ.getUserIDByEmail(User.Identity.GetUserName())))
+                {
+                    ModelState.AddModelError("name", "Please create at least one folder before creating a file.");
+                    return View();
+                } */
                 model.parentFolderID = _fiServ.getParentFolderIDByFolderName(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model.folderName);
                 model.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
@@ -125,6 +130,12 @@ namespace DoriVLN.Controllers
                 _fiServ.editFile(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model);
             }
             return View();
+        }
+
+        public ActionResult SharedFiles()
+        {
+
+            return View(_fiServ.getFilesSharedWithMe(_fiServ.getUserIDByEmail(User.Identity.GetUserName())));
         }
     }
 }

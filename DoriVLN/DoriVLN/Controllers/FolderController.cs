@@ -52,8 +52,9 @@ namespace DoriVLN.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_foServ.folderExists(model))
+                if (_foServ.folderExists(model.name, _foServ.getUserIDByEmail(User.Identity.GetUserName())))
                 {
+                    ModelState.AddModelError("name","A folder with that name already exists.");
                     return View();
                 }
 

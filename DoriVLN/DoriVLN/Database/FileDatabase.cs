@@ -139,5 +139,35 @@ namespace DoriVLN.Database
             var retVal = _db.Folders.SingleOrDefault(f => f.name == name && f.ownerID == userID);
             return retVal.ID;
         }
+
+        public bool noFolder(int userID)
+        {
+            var folders = _db.Folders.SingleOrDefault(f => f.ownerID == userID);
+            if(folders == null)
+            {
+                return true;
+            }
+            return false;
+        } 
+
+        public List<FileViewModel> filesSharedWithMe(int userID)
+        {
+            var result = _db.Files.Where(f => f.shareID == userID);
+            List<FileViewModel> temp = new List<FileViewModel>();
+            foreach(var item in result)
+            {
+                temp.Add(new FileViewModel
+                {
+                    name = item.name,
+                    fileType = item.fileType,
+                    ownerID = item.ownerID,
+                    dateTime = item.dateTime,
+                    content = item.content,
+                    parentFolderID = item.parentFolderID
+
+                });
+            }
+            return temp;
+        }
     }
 }

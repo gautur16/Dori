@@ -19,7 +19,7 @@ namespace DoriVLN.Models.ViewModels
         public DateTime dateTime { get; set; }
         public string content { get; set; }
         [Display(Name = "Choose folder")]
-        [Required(ErrorMessage ="Please enter a file name")]
+        [Required(ErrorMessage ="Please pick a folder to add the file into. If no folder exists, create one.")]
         public string folderName { get; set; }
         public int parentFolderID { get; set; }
 

@@ -84,9 +84,9 @@ namespace DoriVLN.Database
             return retID;
         }
 
-        public bool folderExists(Folder folder)
+        public bool folderExists(string folderName, int userID)
         {
-            var retFolder = _db.Folders.SingleOrDefault(f => f.name == folder.name && f.ownerID == folder.ownerID);
+            var retFolder = _db.Folders.SingleOrDefault(f => f.name == folderName && f.ownerID == userID);
 
             if(retFolder != null)
             {

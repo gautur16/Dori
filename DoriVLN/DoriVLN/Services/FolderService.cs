@@ -39,12 +39,11 @@ namespace DoriVLN.Services
             _foDB.setFolderNameInDB(folderID, name);
         }
 
-        public bool folderExists(FolderViewModel folder)
+        public bool folderExists(string folderName, int userID)
         {
-            Folder checkFolder = new Folder();
-            checkFolder.name = folder.name;
+           
 
-           return _foDB.folderExists(checkFolder);
+           return _foDB.folderExists(folderName, userID);
            
         }
 

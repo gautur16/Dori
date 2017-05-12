@@ -121,5 +121,15 @@ namespace DoriVLN.Services
         {
             return _fiDB.getFolderID(name, userID);
         }
+
+        public bool noFolder(int userID)
+        {
+            return _fiDB.noFolder(userID);
+        }
+
+        public List<FileViewModel> getFilesSharedWithMe(int userID)
+        {
+            return _fiDB.filesSharedWithMe(userID);
+        }
     }
 }
