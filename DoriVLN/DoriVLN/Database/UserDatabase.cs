@@ -14,75 +14,11 @@ namespace DoriVLN.Database
             _db.SaveChanges();
         }
 
-        public bool emailExistsInDB(User user)
-        {
-            var retUser = _db.Users.SingleOrDefault(u => u.email == user.email);
-            if(retUser != null)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public bool usernameExistsInDB(User user)
-        {
-            var retUser = _db.Users.SingleOrDefault(u => u.username == user.username);
-
-            if(retUser != null)
-            {
-                return true;
-            } 
-            return false;
-        }
-
-        public void resetPasswordInDB(User user, string newPassword)
-        {
-            var retUser = _db.Users.SingleOrDefault(u => u.ID == user.ID);
-            if(retUser != null)
-            {
-                retUser.password = newPassword;
-                _db.SaveChanges();
-            }
-
-        }
-
-        public bool wrongPassword(User user)
-        {
-            var retUser = _db.Users.SingleOrDefault(u => u.username == user.username);
-            if(retUser != null)
-            {
-                if(retUser.password != user.password)
-                {
-                    return true;
-                }
-
-                return false;
-            }
-
-            return true;
-
-        }
-
-        public int getUserIDByUsername(string username)
-        {
-            var retVal = _db.Users.SingleOrDefault(u => u.username == username);
-
-            return retVal.ID;
-        }
-
-        public void setLoginStatus(bool login, int userID)
-        {
-            var result = _db.Users.SingleOrDefault(u => u.ID == userID);
-            result.isLoggedIn = login;
-            _db.SaveChanges();
-        }
-
         public string getLoggedInUserName(string email)
         {
             var result = _db.Users.SingleOrDefault(u => u.email == email);
 
             return result.username;
-        }
-
+        } 
     }
 }

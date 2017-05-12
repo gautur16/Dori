@@ -195,16 +195,6 @@ namespace DoriVLN.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Edit(FileViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                _fiServ.editFile(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model);
-            }
-            return View();
-        }
-
         public ActionResult SharedFiles()
         {
             return View(_fiServ.getFilesSharedWithMe(_fiServ.getUserIDByEmail(User.Identity.GetUserName())));

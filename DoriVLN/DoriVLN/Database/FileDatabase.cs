@@ -16,13 +16,6 @@ namespace DoriVLN.Database
             _db.SaveChanges();
         }
 
-        public File getFileFromDB(int fileID)
-        {
-            var retFile = _db.Files.SingleOrDefault(f => f.ID == fileID);
-            return retFile;
-        }
-
-
         public List<File> getFileFromDBByUserID(int userID)
         {
             var result = _db.Files.Where(u => u.ownerID == userID).ToList();
@@ -33,60 +26,24 @@ namespace DoriVLN.Database
         public void removeFileFromDB(int fileID)
         {
             var file = _db.Files.SingleOrDefault(f => f.ID == fileID);
-            if (file == null)
-            {
-                //TODO: Throw Null Exception
-            }
-
+           
             _db.Files.Attach(file);
             _db.Files.Remove(file);
             _db.SaveChanges();
         }
 
-        public void editFileInDB(File newfile)
-        {
-            var file = _db.Files.SingleOrDefault(f => f.ownerID == newfile.ownerID && f.name == newfile.name);
-
-            file.name = newfile.name;
-            file.fileType = newfile.fileType;
-            file.content = newfile.content;
-            _db.SaveChanges();
-
-        }
-
         public bool fileExists(int userID, string fileName)
         {
             var retFile = _db.Files.SingleOrDefault(f => f.name == fileName && f.ownerID == userID);
-            if (retFile != null)
-            {
-                return true;
-            }
 
-            return false;
+            return retFile != null;
         }
 
         public int getFileID(File file)
         {
-
             var retFile = _db.Files.SingleOrDefault(f => f.name == file.name && file.ownerID == f.ownerID);
 
-
             return retFile.ID;
-
-        }
-
-        public int getFileOwnerID(File file)
-        {
-            var retVal = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType);
-            return retVal.ownerID;
-        }
-
-
-        public string getUsername(int ID)
-        {
-            var result = _db.Users.SingleOrDefault(u => u.ID == ID);
-
-            return result.username;
         }
 
         public int getUserIDByEmail(string email)
@@ -131,23 +88,20 @@ namespace DoriVLN.Database
             var result = _db.Files.SingleOrDefault(f => f.ID == fileID);
             result.shareID = userID;
             _db.SaveChanges();
-
         }
 
         public int getFolderID(string name, int userID)
         {
             var retVal = _db.Folders.SingleOrDefault(f => f.name == name && f.ownerID == userID);
+
             return retVal.ID;
         }
 
         public bool noFolder(int userID)
         {
             var folders = _db.Folders.SingleOrDefault(f => f.ownerID == userID);
-            if(folders == null)
-            {
-                return true;
-            }
-            return false;
+
+            return (folders == null);
         } 
 
         public List<FileViewModel> filesSharedWithMe(int userID)
@@ -172,12 +126,8 @@ namespace DoriVLN.Database
         public bool userExists(string email)
         {
             var result = _db.Users.SingleOrDefault(u => u.email == email);
-            if(result == null)
-            {
-                return true;
-            }
 
-            return false;
+            return result == null;
         }
     }
 }

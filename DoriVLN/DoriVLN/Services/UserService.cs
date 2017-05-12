@@ -30,6 +30,6 @@ namespace DoriVLN.Services
         public string getUserName(string email)
         {
             return _uDB.getLoggedInUserName(email);
-        }
+        } 
     }
 }

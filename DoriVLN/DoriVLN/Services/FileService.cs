@@ -18,23 +18,6 @@ namespace DoriVLN.Services
             _fiDB = new FileDatabase();
         }
 
-        public List<FileViewModel> getFilesInFolder(int folderID)
-        {
-            //TODO:
-            return null;
-        }
-
-        public FileViewModel getFileByID(int fileID)
-        {
-            var file = _fiDB.getFileFromDB(fileID);
-
-            FileViewModel viewModel = new FileViewModel();
-            viewModel.name = file.name;
-            viewModel.fileType = file.fileType;
-           
-            return viewModel;
-        }
-
         public void createFile(FileViewModel model, int ownerID)
         {
             DateTime date = new DateTime();
@@ -58,27 +41,10 @@ namespace DoriVLN.Services
         {
             _fiDB.removeFileFromDB(fileID);
         }
- 
-        public void editFile(int userID, FileViewModel file)
-        {
-            File editedFile = new File();
-            editedFile.name = file.name;
-            editedFile.fileType = file.fileType;
-            editedFile.content = file.content;
-            editedFile.ownerID = userID;
-            editedFile.dateTime = DateTime.Now;
-            _fiDB.editFileInDB(editedFile);
-        }
 
         public bool fileExists(int userID, string fileName)
         {
             return _fiDB.fileExists(userID, fileName);
-        }
-
-        public File getFile(int fileID)
-        {
-            var file = _fiDB.getFileFromDB(fileID);
-            return file;
         }
 
         public int getFileID(FileViewModel model, int userID)
@@ -87,7 +53,7 @@ namespace DoriVLN.Services
             file.name = model.name;
             file.ownerID = userID;
             return _fiDB.getFileID(file);
-        }
+        } 
 
         public int getUserIDByEmail(string email)
         {
@@ -102,7 +68,7 @@ namespace DoriVLN.Services
         public List<string> getFolderNamesOfUser(int userID)
         {
             return _fiDB.getFolderNamesOfUser(userID);
-        }
+        } 
 
         public int getParentFolderIDByFolderName(int userID, string folderName)
         {

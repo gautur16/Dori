@@ -25,13 +25,6 @@ namespace DoriVLN.Controllers
             return View(_foServ.getFoldersByID(_foServ.getUserIDByEmail(User.Identity.GetUserName())));
         }
 
-        [HttpPost]
-        public RedirectToRouteResult DeleteFolder(FolderViewModel folder)
-        {
-            int delID = _foServ.getFolderID(folder, _foServ.getUserIDByEmail(User.Identity.GetUserName()));
-            return RedirectToAction("Overview", "Folder");
-        } 
-
         [HttpGet]
         public ActionResult NewFolder()
         {   
