@@ -54,9 +54,9 @@ namespace DoriVLN.Database
 
         }
 
-        public bool fileExists(File file)
+        public bool fileExists(int userID, string fileName)
         {
-            var retFile = _db.Files.SingleOrDefault(f => f.name == file.name && f.fileType == file.fileType && file.ownerID == f.ownerID);
+            var retFile = _db.Files.SingleOrDefault(f => f.name == fileName && f.ownerID == userID);
             if (retFile != null)
             {
                 return true;

@@ -61,6 +61,12 @@ namespace DoriVLN.Controllers
                     ModelState.AddModelError("name", "Please create at least one folder before creating a file.");
                     return View();
                 } 
+
+                if(_fiServ.fileExists(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model.name))
+                {
+                    ModelState.AddModelError("name", "A file with that name already exists, please try again.");
+                    return View();
+                }
                 model.parentFolderID = _fiServ.getParentFolderIDByFolderName(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model.folderName);
                 model.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
