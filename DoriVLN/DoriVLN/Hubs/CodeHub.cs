@@ -16,7 +16,7 @@ namespace DoriVLN.Hubs
         public void OnChange(object changeData, int documentID)
         {
             Clients.Group(Convert.ToString(documentID), Context.ConnectionId).OnChange(changeData);
-            Clients.All.OnChange(changeData);
-        } 
+            //Clients.All.OnChange(changeData);
+        }  
     }
 }

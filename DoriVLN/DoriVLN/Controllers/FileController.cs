@@ -79,15 +79,37 @@ namespace DoriVLN.Controllers
         public ActionResult TextEditor(EditorViewModel model)
         {
             ViewBag.Code = model.Content;
-            ViewBag.DocumentID = 17;
-
+            ViewBag.DocumentID = model.fileID;
+            if (model.fileType == "Javascript")
+            {
+                model.fileType = "javascript";
+            }
+            else if (model.fileType == "C++")
+            {
+                model.fileType = "c_cpp";
+            }
+            else if (model.fileType == "C#")
+            {
+                model.fileType = "csharp";
+            }
+            else if (model.fileType == "Java")
+            {
+                model.fileType = "java";
+            }
+            else if (model.fileType == "Python")
+            {
+                model.fileType = "python";
+            }
+            else if (model.fileType == "Ruby")
+            {
+                model.fileType = "ruby";
+            }
+            else if (model.fileType == "PHP")
+            {
+                model.fileType = "php";
+            }
             return View(model);
         }
-
-        /*public ActionResult Chat()
-        {
-            return View();
-        }*/
 
         [HttpPost]
         public ActionResult SaveCode(EditorViewModel model)
@@ -95,7 +117,36 @@ namespace DoriVLN.Controllers
             if (ModelState.IsValid)
             {
                 model.fileName = TempData["fileName"].ToString();
+                model.fileType = TempData["fileType"].ToString();
                 _fiServ.saveCode(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()) , model.fileName);
+                if (model.fileType == "Javascript")
+                {
+                    model.fileType = "javascript";
+                }
+                else if (model.fileType == "C++")
+                {
+                    model.fileType = "c_cpp";
+                }
+                else if (model.fileType == "C#")
+                {
+                    model.fileType = "csharp";
+                }
+                else if (model.fileType == "Java")
+                {
+                    model.fileType = "java";
+                }
+                else if (model.fileType == "Python")
+                {
+                    model.fileType = "python";
+                }
+                else if (model.fileType == "Ruby")
+                {
+                    model.fileType = "ruby";
+                }
+                else if (model.fileType == "PHP")
+                {
+                    model.fileType = "php";
+                } 
             }
 
             return RedirectToAction("TextEditor", model);
