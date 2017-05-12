@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using DoriVLN.Models;
+using DoriVLN.Services;
 
 namespace DoriVLN.Controllers
 {
@@ -15,9 +16,13 @@ namespace DoriVLN.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private UserService _uServ;
 
         public ManageController()
         {
+            _uServ = new UserService();
+           
+
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -62,7 +67,7 @@ namespace DoriVLN.Controllers
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
-
+            ViewBag.UserName = _uServ.getUserName(User.Identity.GetUserName());
             var userId = User.Identity.GetUserId();
             var model = new IndexViewModel
             {

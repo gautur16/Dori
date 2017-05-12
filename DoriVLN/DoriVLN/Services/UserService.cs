@@ -69,5 +69,12 @@ namespace DoriVLN.Services
             return _uDB.getUserIDByUsername(userName);
         }
         */
+
+        public string getUserName(string email)
+        {
+            return _uDB.getLoggedInUserName(email);
+        }
     }
+
+
 }

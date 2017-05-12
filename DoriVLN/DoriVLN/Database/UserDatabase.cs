@@ -76,5 +76,13 @@ namespace DoriVLN.Database
             result.isLoggedIn = login;
             _db.SaveChanges();
         }
+
+        public string getLoggedInUserName(string email)
+        {
+            var result = _db.Users.SingleOrDefault(u => u.email == email);
+
+            return result.username;
+        }
+
     }
 }
