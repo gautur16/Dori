@@ -77,8 +77,6 @@ namespace DoriVLN.Controllers
                 return RedirectToAction("TextEditor", tempModel);
             }
 
-
-
             return View();
         }
 
@@ -158,7 +156,6 @@ namespace DoriVLN.Controllers
             return RedirectToAction("TextEditor", model);
         }
 
-
         public ActionResult DisplayFiles()
         {
             var result = _fiServ.getFiles(_fiServ.getUserIDByEmail(User.Identity.GetUserName()));
@@ -210,7 +207,6 @@ namespace DoriVLN.Controllers
 
         public ActionResult SharedFiles()
         {
-
             return View(_fiServ.getFilesSharedWithMe(_fiServ.getUserIDByEmail(User.Identity.GetUserName())));
         }
     }
