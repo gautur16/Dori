@@ -77,7 +77,7 @@
                                 <td>@file.name</td>
                                 <td>@file.fileType</td>
                                 <td>@file.dateTime</td>
-                                <td><span style="font-size: 12pt" class="btn btn-default"> @Html.ActionLink("Edit", "TextEditor", "File", new { @Content = file.content, @fileName = file.name, @fileType = file.fileType }, null)</span></td>
+                                <td><span style="font-size: 12pt" class="btn btn-default"> @Html.ActionLink("Edit", "TextEditor", "File", new { @Content = file.content, @fileName = file.name, @fileType = file.fileType, @fileID = file.ID}, null)</span></td>
                                 <td><span style="font-size: 12pt" class="btn btn-default"> @Html.ActionLink("Share", "Share", "File", new { @fileToShare = file.name }, null)</span></td>
                                 <td><span style="font-size: 12pt" class="btn btn-default">@Html.ActionLink("Delete", "Delete", "File", new { @name = file.name, @ownerID = file.ownerID, @fileType = file.fileType }, null)</span></td>
                             </tr>

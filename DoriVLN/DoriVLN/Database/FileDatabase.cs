@@ -163,8 +163,8 @@ namespace DoriVLN.Database
                     ownerID = item.ownerID,
                     dateTime = item.dateTime,
                     content = item.content,
-                    parentFolderID = item.parentFolderID
-
+                    parentFolderID = item.parentFolderID,
+                    ID = item.ID
                 });
             }
             return temp;

@@ -41,19 +41,33 @@ namespace DoriVLN.Controllers
         [HttpPost]
         public ActionResult NewFile(FileViewModel model)
         {
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            List<string> values = _fiServ.getFolderNamesOfUser(_fiServ.getUserIDByEmail(User.Identity.GetUserName()));
+            foreach (var item in values)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Text = item,
+                    Value = item
+                });
+            }
+
+            ViewBag.selectList = selectList;
+
             if (ModelState.IsValid)
             {
-               /* if (_fiServ.noFolder(_fiServ.getUserIDByEmail(User.Identity.GetUserName())))
+                if (_fiServ.noFolder(_fiServ.getUserIDByEmail(User.Identity.GetUserName())))
                 {
                     ModelState.AddModelError("name", "Please create at least one folder before creating a file.");
                     return View();
-                } */
+                } 
                 model.parentFolderID = _fiServ.getParentFolderIDByFolderName(_fiServ.getUserIDByEmail(User.Identity.GetUserName()), model.folderName);
                 model.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());
                 _fiServ.createFile(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()));
                 EditorViewModel tempModel = new EditorViewModel();
                 tempModel.fileName = model.name;
                 tempModel.fileType = model.fileType;
+                tempModel.fileID = model.ID;
                 return RedirectToAction("TextEditor", tempModel);
             }
 
@@ -65,7 +79,7 @@ namespace DoriVLN.Controllers
         public ActionResult TextEditor(EditorViewModel model)
         {
             ViewBag.Code = model.Content;
-            ViewBag.DocumentID = 17;
+            ViewBag.DocumentID = model.fileID;
 
             return View(model);
         }

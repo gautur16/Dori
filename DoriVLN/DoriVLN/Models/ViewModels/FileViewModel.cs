@@ -22,6 +22,7 @@ namespace DoriVLN.Models.ViewModels
         [Required(ErrorMessage ="Please pick a folder to add the file into. If no folder exists, create one.")]
         public string folderName { get; set; }
         public int parentFolderID { get; set; }
+        public int ID { get; set; }
 
     }
     public class ShareFileViewModel

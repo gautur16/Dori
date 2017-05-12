@@ -52,7 +52,8 @@ namespace DoriVLN.Database
                             fileType = file.fileType,
                             dateTime = file.dateTime,
                             content = file.content,
-                            parentFolderID = file.parentFolderID
+                            parentFolderID = file.parentFolderID,
+                            ID = file.ID
                         });
                     }
                 }
