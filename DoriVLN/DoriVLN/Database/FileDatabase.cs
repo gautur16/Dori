@@ -99,7 +99,7 @@ namespace DoriVLN.Database
 
         public bool noFolder(int userID)
         {
-            var folders = _db.Folders.SingleOrDefault(f => f.ownerID == userID);
+            var folders = _db.Folders.Where(f => f.ownerID == userID);
 
             return (folders == null);
         } 
