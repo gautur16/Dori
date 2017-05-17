@@ -74,6 +74,7 @@ namespace DoriVLN.Controllers
                 tempModel.fileName = model.name;
                 tempModel.fileType = model.fileType;
                 tempModel.fileID = model.ID;
+                tempModel.ownerID = _fiServ.getUserIDByEmail(User.Identity.GetUserName());
                 return RedirectToAction("TextEditor", tempModel);
             }
 
@@ -122,7 +123,8 @@ namespace DoriVLN.Controllers
             {
                 model.fileName = TempData["fileName"].ToString();
                 model.fileType = TempData["fileType"].ToString();
-                _fiServ.saveCode(model, _fiServ.getUserIDByEmail(User.Identity.GetUserName()) , model.fileName);
+                model.ownerID = Convert.ToInt32(TempData["ownerID"]);
+                _fiServ.saveCode(model, model.ownerID , model.fileName);
                 if (model.fileType == "Javascript")
                 {
                     model.fileType = "javascript";

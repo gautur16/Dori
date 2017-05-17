@@ -11,5 +11,6 @@ namespace DoriVLN.Models.ViewModels
         public string fileName { get; set; }
         public string fileType { get; set; }
         public int fileID { get; set; }
+        public int ownerID { get; set; }
     }
 }
